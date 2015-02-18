@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<%# link_to: comics_path (I guess all comics)%>
+	<%# going to want to have a loop that goes through all the comics (that have the published boolean (which has not yet been added) and generate the links to these comics. )%>
+	<%# will want to have an abstracted control thing for each page... with the underscore... _navigation first, previous, next, last, random (and all the appropriate code to not show the first link when you are on the first page, etc.) %>
+	<%# an admin toolbar and admin backend (also pages for users (which can only upload pages), so image uploader pages and whatnot.)%>
+	<%# a way to do custom layouts? Have this layout page CHECK the comic for styling attributes, default values for when not on a comic page and a good idea. %>
+	
+	
+	
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 <%= yield %>

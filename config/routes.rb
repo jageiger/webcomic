@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :pages
+
+  resources :chapters
+
   resources :comics
 
   devise_for :users

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  thumb: MyString
+  description: MyText
+  pageNum: 1
+
+two:
+  image: MyString
+  thumb: MyString
+  description: MyText
+  pageNum: 1
