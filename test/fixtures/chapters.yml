@@ -3,9 +3,9 @@
 one:
   title: MyString
   description: MyText
-  pagecount: 1
+  num_pages: 1
 
 two:
   title: MyString
   description: MyText
-  pagecount: 1
+  num_pages: 1

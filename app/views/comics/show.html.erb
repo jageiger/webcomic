@@ -2,12 +2,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @comic.name %>
+  <%= @comic.title %>
 </p>
 
 <p>
   <strong>Chapters:</strong>
-  <%= @comic.chapters %>
+  <%= @comic.num_chapters %>
 </p>
 
 <p>
@@ -15,5 +15,6 @@
   <%= @comic.description %>
 </p>
 
+<%= link_to 'New', new_chapter_path(comic: @comic) %> |
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>

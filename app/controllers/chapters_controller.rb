@@ -15,6 +15,13 @@ class ChaptersController < ApplicationController
   # GET /chapters/new
   def new
     @chapter = Chapter.new
+        puts "******"
+    puts params
+    puts "******"
+    @comic = Comic.find(params[:comic])
+    @chapter.comic = @comic
+    
+    
   end
 
   # GET /chapters/1/edit
@@ -69,6 +76,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:title, :description, :pagecount)
+      params.require(:chapter).permit(:title, :description, :num_pages, :comic_id)
     end
 end

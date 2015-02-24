@@ -4,7 +4,8 @@ class CreatePages < ActiveRecord::Migration
       t.string :image
       t.string :thumb
       t.text :description
-      t.integer :page
+      t.integer :number
+      t.integer :chapter_id
 
       t.timestamps
     end

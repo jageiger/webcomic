@@ -1,1 +1,1 @@
-json.extract! @page, :id, :image, :thumb, :description, :pageNum, :created_at, :updated_at
+json.extract! @page, :id, :image, :thumb, :description, :number, :created_at, :updated_at
