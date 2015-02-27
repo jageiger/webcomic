@@ -3,4 +3,6 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @page %> |
-<%= link_to 'Back', pages_path %>
+<%= link_to 'Back', selected_pages_path(chapter: @chapter) %> |
+
+<%# if admin, display a link to pages_path, too. Call the link 'All Pages'%>

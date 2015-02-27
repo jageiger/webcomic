@@ -6,6 +6,11 @@ class ChaptersController < ApplicationController
   def index
     @chapters = Chapter.all
   end
+  
+  def selected
+    @comic = Comic.find(params[:comic])
+    @chapters = Chapter.all.select { |t| t.comic == @comic }
+  end
 
   # GET /chapters/1
   # GET /chapters/1.json
@@ -20,8 +25,6 @@ class ChaptersController < ApplicationController
     puts "******"
     @comic = Comic.find(params[:comic])
     @chapter.comic = @comic
-    
-    
   end
 
   # GET /chapters/1/edit

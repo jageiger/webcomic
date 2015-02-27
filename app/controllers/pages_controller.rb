@@ -6,19 +6,32 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
   end
+  
+  def selected
+    @chapter = Chapter.find(params[:chapter])
+    @pages = Page.all.select { |t| t.chapter == @chapter }
+  end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @chapter = @page.chapter
+    #@chapter = Chapter.find(params[:chapter])
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    puts "!!!!!!!"
+    puts params
+    puts "!!!!!!!"
+    @chapter = Chapter.find(params[:chapter])
+    @page.chapter = @chapter
   end
 
   # GET /pages/1/edit
   def edit
+    @chapter = @page.chapter
   end
 
   # POST /pages

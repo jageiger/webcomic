@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :pages
+  resources :pages do
+    collection do
+      get :selected
+    end
+  end
 
-  resources :chapters
+  resources :chapters do
+    collection do
+      get :selected
+    end
+  end
 
   resources :comics
 
