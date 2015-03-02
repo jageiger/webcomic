@@ -16,15 +16,11 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     @chapter = @page.chapter
-    #@chapter = Chapter.find(params[:chapter])
   end
 
   # GET /pages/new
   def new
     @page = Page.new
-    puts "!!!!!!!"
-    puts params
-    puts "!!!!!!!"
     @chapter = Chapter.find(params[:chapter])
     @page.chapter = @chapter
   end

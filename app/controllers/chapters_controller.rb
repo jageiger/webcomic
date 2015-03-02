@@ -20,9 +20,6 @@ class ChaptersController < ApplicationController
   # GET /chapters/new
   def new
     @chapter = Chapter.new
-        puts "******"
-    puts params
-    puts "******"
     @comic = Comic.find(params[:comic])
     @chapter.comic = @comic
   end
