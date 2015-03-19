@@ -1,5 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:selected, :show] #only: [:index, :new, :edit, :create, :update, :destroy]
 
   # GET /chapters
   # GET /chapters.json
@@ -15,6 +16,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    redirect_to selected_pages_path(chapter: @chapter)
   end
 
   # GET /chapters/new
@@ -22,6 +24,9 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new
     @comic = Comic.find(params[:comic])
     @chapter.comic = @comic
+    
+    @comic.num_chapters += 1
+    @comic.save
   end
 
   # GET /chapters/1/edit
@@ -61,6 +66,10 @@ class ChaptersController < ApplicationController
   # DELETE /chapters/1
   # DELETE /chapters/1.json
   def destroy
+    @comic = @chapter.comic
+    @comic.num_chapters -= 1
+    @comic.save
+    
     @chapter.destroy
     respond_to do |format|
       format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }

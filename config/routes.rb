@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get :selected
     end
   end
+  
+  resources :assignments
 
   resources :comics
 

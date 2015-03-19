@@ -1,5 +1,6 @@
 class ComicsController < ApplicationController
   before_action :set_comic, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /comics
   # GET /comics.json
@@ -10,6 +11,8 @@ class ComicsController < ApplicationController
   # GET /comics/1
   # GET /comics/1.json
   def show
+    #
+    redirect_to selected_chapters_path(comic: @comic)
   end
 
   # GET /comics/new

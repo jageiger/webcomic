@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150218002515) do
   create_table "chapters", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "num_pages"
+    t.integer  "num_pages",   default: 0
     t.integer  "comic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150218002515) do
   create_table "comics", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "num_chapters"
+    t.integer  "num_chapters", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

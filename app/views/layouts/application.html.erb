@@ -18,6 +18,25 @@
 	
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+<div id="user-tools">
+<% if user_signed_in? %>
+	<%= link_to destroy_user_session_path, :method=>:delete do %>
+		<i class="fa fa-key"></i> Log Out
+	<% end %>
+	
+	<%= link_to assignments_path do %>
+		<i class="fa fa-key"></i> Assignments
+	<% end %>
+<% end %>
+</div> 
+
+<%= link_to "Login", new_user_session_path %> | <%= link_to "Home", root_path %> 
+
+<% @navbarComics.each do |comic| %>
+| <%= link_to comic.title, comic %>
+<% end %>
+
 <%= yield %>
 
 </body>

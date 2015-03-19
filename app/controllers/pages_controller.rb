@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:selected, :show]
 
   # GET /pages
   # GET /pages.json
@@ -21,8 +22,15 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    
     @chapter = Chapter.find(params[:chapter])
     @page.chapter = @chapter
+    
+    @chapter.num_pages += 1
+    @chapter.save
+    
+    @page.number = @chapter.num_pages
+    # need a hidden field so this number attribute won't be lost
   end
 
   # GET /pages/1/edit
@@ -63,6 +71,10 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
+    @chapter = @page.chapter
+    @chapter.num_pages -= 1
+    @chapter.save
+    
     @page.destroy
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
