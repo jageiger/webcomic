@@ -2,18 +2,24 @@ Rails.application.routes.draw do
   resources :pages do
     collection do
       get :selected
+      post :update_row_order
     end
   end
 
   resources :chapters do
     collection do
       get :selected
+      post :update_row_order
     end
   end
   
   resources :assignments
 
-  resources :comics
+  resources :comics do
+    collection do
+      post :update_row_order
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

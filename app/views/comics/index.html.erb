@@ -1,6 +1,6 @@
 <h1>Listing comics</h1>
 
-<table>
+<table class="table table-bordered table-striped" id="sortable">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,11 +12,11 @@
 
   <tbody>
     <% @comics.each do |comic| %>
-      <tr>
+      <tr data-item-id=<%= "#{comic.id}" %> class="item">
         <td><%= comic.title %></td>
         <td><%= comic.num_chapters %></td>
         <td><%= comic.description %></td>
-        <td><%= link_to 'Show', comic %></td>
+        <td><%= link_to 'Show', comic, :class => 'btn btn-default pull-right' %></td>
         <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
         <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

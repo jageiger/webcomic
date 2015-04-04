@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller_name %> <%= action_name %>">
 	
 	<%# link_to: comics_path (I guess all comics)%>
 	<%# going to want to have a loop that goes through all the comics (that have the published boolean (which has not yet been added) and generate the links to these comics. )%>

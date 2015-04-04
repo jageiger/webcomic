@@ -1,6 +1,6 @@
 <h1>Listing pages</h1>
 
-<table>
+<table class="table table-bordered table-striped" id="sortable">
   <thead>
     <tr>
       <th>Image</th>
@@ -13,7 +13,7 @@
 
   <tbody>
     <% @pages.each do |page| %>
-      <tr>
+      <tr data-item-id=<%= "#{page.id}" %> class="item">
         <td><%= page.image %></td>
         <td><%= page.thumb %></td>
         <td><%= page.description %></td>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @chapter.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @chapter.description %>
+</p>
+
+<p>
+  <strong>Pagecount:</strong>
+  <%= @chapter.num_pages %>
+</p>
+
+<%= link_to 'View Pages', selected_pages_path(chapter: @chapter) %> |
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>

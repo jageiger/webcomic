@@ -1,0 +1,36 @@
+<%= form_for(@assignment) do |f| %>
+  <% if @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :comic_id %><br>
+    <% if @comic %> <%# if this page was a redirect, and a specific COMIC object was passed, that will be the default in the option select! %>
+		<%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "email", @comic.id), {}, class: "form-control"  %>
+	<% else %>
+		<%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "email"), {}, class: "form-control"  %>
+	<% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id %><br>
+    <% if @user %> <%# if this page was a redirect, and a specific USER object was passed, that will be the default in the option select! %>
+		<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email", @user.id), {}, class: "form-control"  %>
+	<% else %>
+		<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email"), {}, class: "form-control"  %>
+	<% end %>
+  </div>
+	<div class="form-group">
+  	<%= f.label :role %><br>
+  	<%= f.select :role, options_for_select([["Admin", 1], ["Uploader", 2]], @assignment.role), {}, class: "form-control" %>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

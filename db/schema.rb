@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150218002515) do
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "comic_id"
+    t.integer  "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,7 +24,9 @@ ActiveRecord::Schema.define(version: 20150218002515) do
   create_table "chapters", force: true do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "cover"
     t.integer  "num_pages",   default: 0
+    t.integer  "row_order"
     t.integer  "comic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,6 +35,11 @@ ActiveRecord::Schema.define(version: 20150218002515) do
   create_table "comics", force: true do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "cover"
+    t.string   "logo"
+    t.string   "banner"
+    t.integer  "row_order"
+    t.boolean  "navbar"
     t.integer  "num_chapters", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150218002515) do
     t.string   "image"
     t.string   "thumb"
     t.text     "description"
-    t.integer  "number"
+    t.integer  "row_order"
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"

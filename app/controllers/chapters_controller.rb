@@ -5,12 +5,20 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
+    @chapters = Chapter.rank(:row_order).all
+  end
+  
+  def update_row_order
+    @chapter = Chapter.find(chapter_params[:chapter_id])
+    @chapter.row_order_position = chapter_params[:row_order_position]
+    @chapter.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
   
   def selected
     @comic = Comic.find(params[:comic])
-    @chapters = Chapter.all.select { |t| t.comic == @comic }
+    @chapters = Chapter.rank(:row_order).all.select { |t| t.comic == @comic }
   end
 
   # GET /chapters/1
@@ -85,6 +93,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:title, :description, :num_pages, :comic_id)
+      params.require(:chapter).permit(:chapter_id, :title, :description, :cover, :num_pages, :row_order_position, :comic_id)
     end
 end

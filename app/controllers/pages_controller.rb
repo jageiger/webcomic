@@ -5,12 +5,20 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.rank(:row_order).all
+  end
+  
+  def update_row_order
+    @page = Page.find(page_params[:page_id])
+    @page.row_order_position = page_params[:row_order_position]
+    @page.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
   
   def selected
     @chapter = Chapter.find(params[:chapter])
-    @pages = Page.all.select { |t| t.chapter == @chapter }
+    @pages = Page.rank(:row_order).all.select { |t| t.chapter == @chapter }
   end
 
   # GET /pages/1
@@ -29,8 +37,8 @@ class PagesController < ApplicationController
     @chapter.num_pages += 1
     @chapter.save
     
-    @page.number = @chapter.num_pages
-    # need a hidden field so this number attribute won't be lost
+    @page.row_order = @chapter.num_pages
+    # need a hidden field so this row_order attribute won't be lost
   end
 
   # GET /pages/1/edit
@@ -90,6 +98,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:image, :thumb, :description, :number, :chapter_id)
+      params.require(:page).permit(:page_id, :image, :thumb, :description, :row_order_position, :chapter_id)
     end
 end

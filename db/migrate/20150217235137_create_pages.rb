@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :image
       t.string :thumb
       t.text :description
-      t.integer :number
+      t.integer :row_order # for sorting
       t.integer :chapter_id
 
       t.timestamps

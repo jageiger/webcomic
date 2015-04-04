@@ -5,7 +5,16 @@ class ComicsController < ApplicationController
   # GET /comics
   # GET /comics.json
   def index
-    @comics = Comic.all
+    @comics = Comic.rank(:row_order).all
+  end
+  
+  def update_row_order
+    @comic = Comic.find(comic_params[:comic_id])
+    @comic.row_order_position = comic_params[:row_order_position]
+    @comic.save
+    
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
   
   # GET /comics/1
@@ -72,6 +81,6 @@ class ComicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comic_params
-      params.require(:comic).permit(:title, :num_chapters, :description)
+      params.require(:comic).permit(:comic_id, :title, :description, :cover, :logo, :banner, :row_order_position, :navbar, :num_chapters)
     end
 end

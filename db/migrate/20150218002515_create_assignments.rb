@@ -3,6 +3,7 @@ class CreateAssignments < ActiveRecord::Migration
     create_table :assignments do |t|
       t.integer :user_id
       t.integer :comic_id
+      t.integer :role
 
       t.timestamps
     end
