@@ -18,13 +18,18 @@ class PagesController < ApplicationController
   end
   
   def selected
+    @count = 1
+    if params[:page]
+      @count = params[:page].to_i
+    end
+    
     @chapter = Chapter.find(params[:chapter])
     @pages = Page.rank(:row_order).all.select { |t| t.chapter == @chapter }
     unless user_signed_in?
       unless @pages.kind_of?(Array)
-        @pages = @pages.page(params[:page]).per(2)
+        @pages = @pages.page(params[:page]).per(1)
       else
-        @pages = Kaminari.paginate_array(@pages).page(params[:page]).per(2)
+        @pages = Kaminari.paginate_array(@pages).page(params[:page]).per(1)
       end
     end
   end

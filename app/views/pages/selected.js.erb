@@ -1,6 +1,6 @@
 // Append new data
 $("<%=j render(:partial => 'pages', :object => @pages, :chapter => @chapter) %>")
-  .appendTo($(".infinite-table table"));
+  .appendTo($(".boxie"));
 
 // Update pagination link
 <% if @pages.last_page? %>

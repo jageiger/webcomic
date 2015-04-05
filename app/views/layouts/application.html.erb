@@ -16,28 +16,74 @@
 	
 	
 	
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Webcomic", root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				<% if current_page?(root_path) %>
+					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+				<% else %>
+					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+				<% end %>
+            
+<% @navbarComics.each do |comic| %>
+	<% if (current_page?(chapters_path) || current_page?(selected_chapters_path)) && comic == @comic %>
+			<li class="active"><%= link_to comic.title, comic %></li>
+	<% elsif (current_page?(pages_path) || current_page?(selected_pages_path)) && comic == @chapter.comic %>
+			<li class="active"><%= link_to comic.title, comic %></li>
+	<% else %>
+			<li><%= link_to comic.title, comic %></li>
+	<% end %>
+<% end %>
+       
+          </ul>
+		
+		<% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=  current_user.first.slice(0,1).capitalize + current_user.first.slice(1..-1) %> <%= current_user.last.slice(0,1).capitalize %>. <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+	            <li><%= link_to edit_user_registration_path do %>My Profile<% end %></li>
+				<li><%= link_to assignments_path do %>My Assignments<% end %></li>
+				<li class="divider"></li>
+                <li><%= link_to destroy_user_session_path, :method=>:delete do %>Log Out<% end %></li>
+              </ul>
+            </li>
+          </ul>
+		<% end %>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-<div id="user-tools">
-<% if user_signed_in? %>
-	<%= link_to destroy_user_session_path, :method=>:delete do %>
-		<i class="fa fa-key"></i> Log Out
-	<% end %>
-	
-	<%= link_to assignments_path do %>
-		<i class="fa fa-key"></i> Assignments
-	<% end %>
-<% end %>
-</div> 
 
-<%= link_to "Login", new_user_session_path %> | <%= link_to "Home", root_path %> 
 
-<% @navbarComics.each do |comic| %>
-| <%= link_to comic.title, comic %>
-<% end %>
 
-<%= yield %>
+<div class="container">
+
+	<%= yield %>
+
+</div>
 
 </body>
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"><%= link_to "Login", new_user_session_path %></p>
+  </div>
+</footer>
+
+
+
 </html>

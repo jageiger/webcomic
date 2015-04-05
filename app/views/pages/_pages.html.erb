@@ -1,6 +1,9 @@
+
 <% @pages.each do |page| %>
-  <div>
-    <div><%= image_tag "#{page.image}", :class => "img-responsive" %></div>
-    <div><%= page.description %></div>
+  <div class="panel panel-default">
+	<div class="panel-heading">Page <%= @count %></div>
+    <div class="panel-body"><%= image_tag "#{page.image}", :class => "img-responsive center-block embed-responsive-item" %></div>
+    <div class="panel-footer"><%= page.description %></div>
   </div>
+<% @count += 1 %>
 <% end %>
