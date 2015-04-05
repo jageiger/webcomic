@@ -32,16 +32,11 @@
 
 <% else %>
 
-	<% @pages.each do |page| %>
+<div id="feed">
+	<div class="section">
+		<%= render @pages %>
 	</div>
-  		<div>
-    		<%= image_tag "#{page.image}", :class => "img-responsive" %>
-		</div>
-    	<div>
-			<%= page.description %>
-		</div>
-	</div>
-	<% end %>
+</div>
 
 <%= paginate @pages %>
 <%= page_entries_info @pages %>

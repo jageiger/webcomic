@@ -18,3 +18,4 @@
 //= require bootstrap-sprockets
 //= require jquery-readyselector
 //= require_tree .
+//= require jquery.infinitescroll
