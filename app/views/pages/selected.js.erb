@@ -1,1 +1,11 @@
-$("#feed").append("<div class='section'><%= escape_javascript(render(@pages)) %></div>");
+// Append new data
+$("<%=j render(:partial => 'pages', :object => @pages, :chapter => @chapter) %>")
+  .appendTo($(".infinite-table table"));
+
+// Update pagination link
+<% if @pages.last_page? %>
+  $('.pagination').html("End of chapter.");
+<% else %>
+  $('.pagination')
+    .html("<%=j link_to_next_page @pages, 'Next Page', :remote => true, params: params %>");
+<% end %>

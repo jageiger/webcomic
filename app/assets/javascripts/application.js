@@ -19,3 +19,4 @@
 //= require jquery-readyselector
 //= require_tree .
 //= require jquery.infinitescroll
+//= require jquery.infinite-pages
