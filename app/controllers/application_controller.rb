@@ -21,4 +21,15 @@ class ApplicationController < ActionController::Base
     @navbarComics = Comic.all
   end  
   
+  def correct_counts
+    # grab each chapter
+    # count number of pages assigned to that chapter
+    # update num_pages
+    
+    # likewise for comics and num_chapters
+    
+    # do as before filter for all crud
+  end
+  
+  
 end
