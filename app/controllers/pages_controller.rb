@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @pages = Page.rank(:row_order).all
+    # should redirect if not logged in, right?
   end
   
   def update_row_order
@@ -19,6 +20,13 @@ class PagesController < ApplicationController
   def selected
     @chapter = Chapter.find(params[:chapter])
     @pages = Page.rank(:row_order).all.select { |t| t.chapter == @chapter }
+    unless user_signed_in?
+      unless @pages.kind_of?(Array)
+        @pages = @pages.page(params[:page]).per(2)
+      else
+        @pages = Kaminari.paginate_array(@pages).page(params[:page]).per(2)
+      end
+    end
   end
 
   # GET /pages/1

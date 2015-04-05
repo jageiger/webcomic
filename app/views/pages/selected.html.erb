@@ -1,6 +1,8 @@
-<h1>Listing pages</h1>
 
-<table class="table table-bordered table-striped" id="sortable">
+
+<h1>Listing pages</h1>
+<% if user_signed_in? %>
+<table class="table table-hover table-striped" id="sortable">
   <thead>
     <tr>
       <th>Image</th>
@@ -15,7 +17,7 @@
     <% @pages.each do |page| %>
       <tr data-item-id=<%= "#{page.id}" %> class="item">
         <td><%= page.thumb %></td>
-        <td><%= page.number %></td>
+        <td><%= page.row_order %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>
         <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +29,21 @@
 <br>
 
 <%= link_to 'New', new_page_path(chapter: @chapter) %>
+
+<% else %>
+
+	<% @pages.each do |page| %>
+	</div>
+  		<div>
+    		<%= image_tag "#{page.image}", :class => "img-responsive" %>
+		</div>
+    	<div>
+			<%= page.description %>
+		</div>
+	</div>
+	<% end %>
+
+<%= paginate @pages %>
+<%= page_entries_info @pages %>
+
+<% end %>
