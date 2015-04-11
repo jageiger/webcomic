@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if current_user.try(:admin?) %>
 
 <h1>Listing comics</h1>
 
@@ -16,7 +16,7 @@
     <% @comics.each do |comic| %>
       <tr data-item-id=<%= "#{comic.id}" %> class="item">
         <td><%= comic.title %></td>
-        <td><%= comic.num_chapters %></td>
+        <td><%= Chapter.all.select { |t| t.comic == comic }.count %></td>
         <td><%= comic.description %></td>
         <td><%= link_to 'Show', comic, :class => 'btn btn-default pull-right' %></td>
         <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
@@ -32,6 +32,23 @@
 
 <% else %>
 
-Not logged in.
-
+<div class="container-fluid">
+  <div class="row">
+	<% @comics.each do |comic| %>
+	 
+	  <div class="col-xs-6 col-md-4">
+         <div class="panel panel-default">
+	 	  <div class="panel-heading">
+	 	    <h3 class="panel-title"><%= comic.title %></h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= comic.description %>
+		  </div>
+		 </div>
+ 	  </div>
+ 	
+    <% end %>
+    
+  </div>
+</div>
 <% end %>

@@ -1,4 +1,4 @@
-json.array!(@chapters) do |chapter|
-  json.extract! chapter, :id, :title, :description, :num_pages
-  json.url chapter_url(chapter, format: :json)
+json.array!(@assignments) do |assignment|
+  json.extract! assignment, :id, :user_id, :comic_id, :role
+  json.url assignment_url(assignment, format: :json)
 end

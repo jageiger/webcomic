@@ -10,27 +10,20 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :comic_id %><br>
-    <% if @comic %> <%# if this page was a redirect, and a specific COMIC object was passed, that will be the default in the option select! %>
-		<%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "email", @comic.id), {}, class: "form-control"  %>
-	<% else %>
-		<%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "email"), {}, class: "form-control"  %>
-	<% end %>
-  </div>
-  <div class="form-group">
+
+  <div class="field">
     <%= f.label :user_id %><br>
-    <% if @user %> <%# if this page was a redirect, and a specific USER object was passed, that will be the default in the option select! %>
-		<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email", @user.id), {}, class: "form-control"  %>
-	<% else %>
-		<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email"), {}, class: "form-control"  %>
-	<% end %>
+	<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email"), {}, class: "form-control", :prompt => "Select user by email" %>
   </div>
-	<div class="form-group">
-  	<%= f.label :role %><br>
-  	<%= f.select :role, options_for_select([["Admin", 1], ["Uploader", 2]], @assignment.role), {}, class: "form-control" %>
-	</div>
+  <div class="field">
+    <%= f.label :comic_id %><br>
+    <%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "title"), {}, class: "form-control", :prompt => "Select comic by title" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :role %><br>
+    <%= f.select :role, options_for_select([["Owner", 1], ["Uploader", 2]]), {}, class: "form-control" %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>

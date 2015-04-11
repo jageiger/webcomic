@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @chapter.title %>
+  <strong>User:</strong>
+  <%= @assignment.user_id %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @chapter.description %>
+  <strong>Comic:</strong>
+  <%= @assignment.comic_id %>
 </p>
 
 <p>
-  <strong>Pagecount:</strong>
-  <%= @chapter.num_pages %>
+  <strong>Role:</strong>
+  <%= @assignment.role %>
 </p>
 
-<%= link_to 'View Pages', selected_pages_path(chapter: @chapter) %> |
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

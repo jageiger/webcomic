@@ -1,6 +1,7 @@
 class ComicsController < ApplicationController
   before_action :set_comic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_admin, except: [:index, :show]
 
   # GET /comics
   # GET /comics.json
@@ -82,5 +83,11 @@ class ComicsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comic_params
       params.require(:comic).permit(:comic_id, :title, :description, :cover, :logo, :banner, :row_order_position, :navbar, :num_chapters)
+    end
+    
+    def check_admin
+      unless current_user.try(:admin?)
+        redirect_to comics_path
+      end
     end
 end

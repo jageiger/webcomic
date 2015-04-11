@@ -31,5 +31,9 @@ class ApplicationController < ActionController::Base
     # do as before filter for all crud
   end
   
+  def check_assign
+  
+  end
+  
   
 end

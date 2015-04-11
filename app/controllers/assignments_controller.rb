@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /assignments
   # GET /assignments.json
@@ -14,6 +15,8 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/new
   def new
+    @users = User.all
+    @comics = Comic.all
     @assignment = Assignment.new
   end
 
@@ -52,7 +55,7 @@ class AssignmentsController < ApplicationController
   end
 
   # DELETE /assignments/1
-  # DELETE /cassignments/1.json
+  # DELETE /assignments/1.json
   def destroy
     @assignment.destroy
     respond_to do |format|
@@ -64,7 +67,7 @@ class AssignmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_assignment
-      @assignments = Assignment.find(params[:id])
+      @assignment = Assignment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
