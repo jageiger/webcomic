@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:selected, :show]
+  before_action :authenticate_user!, except: [:selected, :show, :bookmark, :unbookmark]
 
   # GET /pages
   # GET /pages.json
@@ -15,6 +15,19 @@ class PagesController < ApplicationController
     @page.save
 
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
+  
+  def bookmark
+    page = Page.find(params[:page_id])
+    count = params[:count]
+    cookies["page_#{page.id}".to_sym] = 1
+    render inline: "MOOSE"
+  end
+  def unbookmark
+    page = Page.find(params[:page_id])
+    count = params[:count]
+    cookies["page_#{page.id}".to_sym] = 0
+    render nothing: true
   end
   
   def selected

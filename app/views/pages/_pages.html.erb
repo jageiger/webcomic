@@ -1,7 +1,28 @@
 
 <% @pages.each do |page| %>
   <div class="panel panel-default">
-	<div class="panel-heading">Page <%= @count %></div>
+	<div class="panel-heading" style="height: 25px;" >
+	<% unless  cookies["page_#{page.id}".to_sym] == "1"  %>
+	
+	<%= form_tag bookmark_pages_url, method: "put", remote: true do %>
+		<%= hidden_field_tag("page_id", page.id) %>
+     	<%= hidden_field_tag("count", @count) %>
+      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+    <% end %>
+	
+
+	<% else %>
+	
+	<%= form_tag unbookmark_pages_url, method: "put", remote: true do %>
+		<%= hidden_field_tag("page_id", page.id) %>
+     	<%= hidden_field_tag("count", @count) %>
+      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs btn-danger', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+    <% end %>
+
+	<% end %>
+		
+		
+		</div>
     <div class="panel-body"><%= image_tag "#{page.image}", :class => "img-responsive center-block embed-responsive-item" %></div>
     <div class="panel-footer"><%= page.description %></div>
   </div>

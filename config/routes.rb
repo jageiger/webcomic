@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     collection do
       get :selected
       post :update_row_order
+      put :bookmark
+      put :unbookmark
     end
   end
 
