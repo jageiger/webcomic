@@ -11,15 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
-  <div class="actions">
+  <div class="form-group">
+  	<%= f.label :cover %><br>
+  	<%= f.file_field :cover, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :logo %><br>
+  	<%= f.file_field :logo, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :banner %><br>
+  	<%= f.file_field :banner, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :navbar %><br>
+  	<%= f.check_box :navbar, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.submit %>
   </div>
 <% end %>

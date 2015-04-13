@@ -4,21 +4,21 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autofocus: true, class: "form-control" %></div>
 
   <div><%= f.label "First Name" %><br />
-  <%= f.email_field :first %></div>
+  <%= f.email_field :first, class: "form-control" %></div>
 
   <div><%= f.label "Last Name" %><br />
-  <%= f.email_field :last %></div>
+  <%= f.email_field :last, class: "form-control" %></div>
 
   <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %></div>
 
   <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", class: "btn btn-primary" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

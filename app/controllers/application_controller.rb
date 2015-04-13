@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_navbar_comics
-    @navbarComics = Comic.all
+    @navbarComics = Comic.rank(:row_order).all.select { |t| t.navbar }
   end  
   
   def correct_counts

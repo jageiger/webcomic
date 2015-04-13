@@ -1,3 +1,5 @@
+<% if current_user.try(:admin?) %>
+
 <h1>Listing chapters</h1>
 
 <table class="table table-bordered table-striped" id="sortable">
@@ -27,3 +29,27 @@
 <br>
 
 <%= link_to 'New', new_chapter_path(comic: @comic) %>
+
+<% else %>
+
+<div class="row">
+	<% @chapters.each do |chapter| %>
+
+	  <div class="col-xs-6 col-md-4">
+			 <%= link_to(chapter) do %>
+       <div class="panel panel-default">
+	 	  <div class="panel-heading">
+	 	    <h3 class="panel-title"><%= chapter.title %></h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item" %>
+		  </div>
+		 </div>
+		 	<% end %>
+	  </div>
+
+  <% end %>
+  
+</div>
+
+<% end %>

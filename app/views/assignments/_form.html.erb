@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :user_id %><br>
 	<%= f.select :user_id, options_from_collection_for_select(@users, "id", "email"), {}, class: "form-control", :prompt => "Select user by email" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :comic_id %><br>
     <%= f.select :comic_id, options_from_collection_for_select(@comics, "id", "title"), {}, class: "form-control", :prompt => "Select comic by title" %>
   </div>
@@ -23,7 +23,7 @@
     <%= f.label :role %><br>
     <%= f.select :role, options_for_select([["Owner", 1], ["Uploader", 2]]), {}, class: "form-control" %>
   </div>
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>
