@@ -1,4 +1,14 @@
-<% if current_user.try(:admin?) %>
+<% @assignments = Assignment.all.select { |t| t.comic_id == @comic.id } %>
+<% not_nil = -1 %>
+<% if user_signed_in? %>
+<% not_nil = current_user.id %>
+<% end %>
+<% if current_user.try(:admin?) || @assignments.select { |t| t.user_id == not_nil }.any? %>
+<%# if !(@assignments.where(:user_id => current_user.id).blank?) ||  current_user.try(:admin?)   %>
+
+<%# @assignments = @assignments.select { |t| t.user_id == current_user.id } %>
+<%# if current_user.try(:admin?) %>
+
 
 <h1>Listing chapters</h1>
 

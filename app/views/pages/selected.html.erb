@@ -2,7 +2,12 @@
 <div class="page-header">
   <h1><%= @chapter.comic.title %> <small><%= @chapter.title %></small></h1>
 </div>
+<% @assignments = Assignment.all.select { |t| t.comic_id == @chapter.comic_id } %>
+<% not_nil = -1 %>
 <% if user_signed_in? %>
+<% not_nil = current_user.id %>
+<% end %>
+<% if current_user.try(:admin?) || @assignments.select { |t| t.user_id == not_nil }.any? %>
 <table class="table table-hover table-striped" id="sortable">
   <thead>
     <tr>

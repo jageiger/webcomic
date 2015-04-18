@@ -8,6 +8,9 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 	
+	<div id="wrappur">
+			<div id="headur">
+	
 	<%# link_to: comics_path (I guess all comics)%>
 	<%# going to want to have a loop that goes through all the comics (that have the published boolean (which has not yet been added) and generate the links to these comics. )%>
 	<%# will want to have an abstracted control thing for each page... with the underscore... _navigation first, previous, next, last, random (and all the appropriate code to not show the first link when you are on the first page, etc.) %>
@@ -67,7 +70,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-
+</div>
+<div id="contint">
 
 
 <div class="container-fluid">
@@ -78,13 +82,21 @@
 </div>
 </div>
 
-</body>
+</div>
+<div id="footur">
 
 <footer class="footer">
   <div class="container">
     <p class="text-muted"><%= link_to "Login", new_user_session_path %></p>
   </div>
 </footer>
+
+</div>
+</div>
+
+</body>
+
+
 
 
 

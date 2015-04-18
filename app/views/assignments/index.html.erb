@@ -13,8 +13,8 @@
 
   <tbody>
     <% @assignments.each do |assignment| %>
-      <tr>
-        <td><%= assignment.user_id %></td>
+      <tr><% user = User.find_by_id(assignment.user_id) %>
+        <td><%= user.first %> <%= user.last %></td>
         <td><%= assignment.comic_id %></td>
         <td><%= assignment.role %></td>
         <td><%= link_to 'Show', assignment %></td>
@@ -29,3 +29,26 @@
 
 <%= link_to 'New Assignment', new_assignment_path %>
 <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Comic</th>
+      <th>Role</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @assignments = @assignments.select { |t| t.user_id == current_user.id } %>
+    <% @assignments.each do |assignment| %>
+      <tr><% user = User.find_by_id(assignment.user_id) %>
+        <td><%= user.first %> <%= user.last %></td>
+        <td><%= assignment.comic_id %></td>
+        <td><%= assignment.role %></td>
+        <td><%= link_to 'Show', assignment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
