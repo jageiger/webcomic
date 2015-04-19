@@ -3,37 +3,37 @@
   <div class="panel panel-default">
 	<div class="panel-heading" style="height: 25px;" >
 	<% unless  cookies["page_#{page.id}".to_sym] == "1"  %>
-	<div id="b_page_#{page.id}">
+	<div id="b_page_<%= page.id %>" style="display:block;">
 	<%= form_tag bookmark_pages_url, method: "put", remote: true do %>
 		<%= hidden_field_tag("page_id", page.id) %>
      	<%= hidden_field_tag("count", @count) %>
-      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs', :style => 'margin-top: -9px;', :onclick => "document.getElementById(b_page_#{page.id}.id).style.display = 'none';document.getElementById(u_page_#{page.id}.id).style.display = 'block'" do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
 
     <% end %>
 	</div>
-<div id="b_page_#{page.id}" style="display:none;">
+<div id="u_page_<%= page.id %>" style="display:none;">
 	<%= form_tag unbookmark_pages_url, method: "put", remote: true do %>
 		<%= hidden_field_tag("page_id", page.id) %>
      	<%= hidden_field_tag("count", @count) %>
-      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs btn-danger', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs btn-danger', :style => 'margin-top: -9px;', :onclick => "document.getElementById(u_page_#{page.id}.id).style.display = 'none';document.getElementById(b_page_#{page.id}.id).style.display = 'block'" do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
     <% end %>
 	</div>
 
 	<% else %>
 	
-		<div id="b_page_#{page.id}" style="display:none;">
+		<div id="u_page_<%= page.id %>" style="display:none;">
 		<%= form_tag bookmark_pages_url, method: "put", remote: true do %>
 			<%= hidden_field_tag("page_id", page.id) %>
 	     	<%= hidden_field_tag("count", @count) %>
-	      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+	      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs', :style => 'margin-top: -9px;', :onclick => "document.getElementById(b_page_#{page.id}.id).style.display = 'none';document.getElementById(u_page_#{page.id}.id).style.display = 'block'" do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
 
 	    <% end %>
 		</div>
-	<div id="b_page_#{page.id}">
+	<div id="b_page_<%= page.id %>" style="display:block;">
 		<%= form_tag unbookmark_pages_url, method: "put", remote: true do %>
 			<%= hidden_field_tag("page_id", page.id) %>
 	     	<%= hidden_field_tag("count", @count) %>
-	      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs btn-danger', :style => 'margin-top: -9px;' do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
+	      	<%= button_tag type: "submit", :class => 'btn btn-default pull-right btn-xs btn-danger', :style => 'margin-top: -9px;', :onclick => "document.getElementById(u_page_#{page.id}.id).style.display = 'none';document.getElementById(b_page_#{page.id}.id).style.display = 'block'" do %><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><% end %>		
 	    <% end %>
 		</div>
 
