@@ -38,17 +38,13 @@
 
 	  <div class="col-xs-6 col-md-4">
 			 
-         <div class="panel panel-primary">
-	 	  <div class="panel-heading">
-	 	    <h3 class="panel-title text-center"><%= comic.title %></h3>
+      
+		
+		  <div class="text-center" style="margin-bottom:50px;">
+		    <%= image_tag "#{comic.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{comic.description}<br>#{link_to comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"auto"}, :title => comic.title %>
 		  </div>
-		<%= link_to(comic) do %>
-		  <div >
-		    <%= image_tag "#{comic.cover}", :class => "img-responsive center-block embed-responsive-item" %>
-		  </div>
-		<% end %>
-		<div class="text-center bg-info"><b>Description: </b><%= comic.description %></div>
-		 </div>
+		
+
 		 	
  	  </div>
 

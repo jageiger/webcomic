@@ -45,18 +45,11 @@
 <div class="row">
 	<% @chapters.each do |chapter| %>
 
-	  <div class="col-xs-6 col-md-4">
-			 <%= link_to(chapter) do %>
-       <div class="panel panel-default">
-	 	  <div class="panel-heading">
-	 	    <h3 class="panel-title"><%= chapter.title %></h3>
-		  </div>
-		  <div class="panel-body">
-		    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item" %>
-		  </div>
-		 </div>
-		 	<% end %>
+     <div class="col-xs-6 col-md-4">
+	  <div class="text-center" style="margin-bottom:50px;">
+	    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{chapter.description}<br>#{link_to chapter.title, chapter, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"auto"}, :title => chapter.title %>
 	  </div>
+	 </div>
 
   <% end %>
   

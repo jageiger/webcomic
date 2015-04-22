@@ -1,8 +1,9 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:selected, :show] #only: [:index, :new, :edit, :create, :update, :destroy]
-  before_action :qawsedrf, except: [:index, :selected, :show, :bookmark, :unbookmark, :new] #might need separate for new
+  before_action :qawsedrf, except: [:index, :selected, :show, :bookmark, :unbookmark, :new, :create] #might need separate for new
   before_action :qawsedrf_new, only: [:new]
+  before_action :qawsedrf_create, only: [:create]
 
   # GET /chapters
   # GET /chapters.json
@@ -113,6 +114,19 @@ class ChaptersController < ApplicationController
     
     def qawsedrf_new
       @comic = Comic.find(params[:comic])
+
+      @assignments = Assignment.all.select { |t| t.comic_id == @comic.id }
+      not_nil = -1
+      if user_signed_in?
+        not_nil = current_user.id
+      end
+     unless current_user.try(:admin?) || @assignments.select { |t| t.user_id == not_nil }.any?
+        redirect_to comics_path
+     end  
+    end
+    
+    def qawsedrf_create
+      @comic = Comic.find(chapter_params[:comic_id])
 
       @assignments = Assignment.all.select { |t| t.comic_id == @comic.id }
       not_nil = -1
