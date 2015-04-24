@@ -32,8 +32,13 @@
 
 <% else %>
 
+<div class="page-header">
+  <h1>Welcome! <small>Our Wonderful Comics</small></h1>
+</div>
+<p>You like webcomics? Well, we've got 'em.</p>
 
   <div class="row">
+
 	<% @comics.each do |comic| %>
 
 	  <div class="col-xs-6 col-md-4">
@@ -41,7 +46,7 @@
       
 		
 		  <div class="text-center" style="margin-bottom:50px;">
-		    <%= image_tag "#{comic.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{comic.description}<br>#{link_to comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"auto"}, :title => comic.title %>
+		    <%= image_tag "#{comic.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{comic.description}<br>#{link_to comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"top"}, :title => comic.title %>
 		  </div>
 		
 

@@ -1,3 +1,5 @@
+
+
 <% @assignments = Assignment.all.select { |t| t.comic_id == @comic.id } %>
 <% not_nil = -1 %>
 <% if user_signed_in? %>
@@ -47,7 +49,7 @@
 
      <div class="col-xs-6 col-md-4">
 	  <div class="text-center" style="margin-bottom:50px;">
-	    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{chapter.description}<br>#{link_to chapter.title, chapter, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"auto"}, :title => chapter.title %>
+	    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{chapter.description}<br>#{link_to chapter.title, chapter, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"top"}, :title => chapter.title %>
 	  </div>
 	 </div>
 
