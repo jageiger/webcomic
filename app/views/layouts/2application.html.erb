@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webcomic</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Alegreya:700,700italic,400italic,400|Alegreya:400,300,700" rel="stylesheet" type="text/css">
+
+<style>
+    body {
+        background-color: #FF0000;
+    }
+</style>
+
+<style>
+
+	/*  $ELEMENTS
+	_______________________________________________________ */
+
+	body { 
+	font: 1em/1.75em  Alegreya; 
+	color: #427ea3;
+	background: #FAFAFA;
+	}
+
+	
+	body { background: #FAFAFA url(http://static.tumblr.com/d249339336e54c5916984cf820ba72c2/ijrfayn/DSJnn5qtv/tumblr_static_26km4qt3joo0o0sg88o0sg0gk.png) no-repeat top center; }
+	
+
+	
+	body { background-repeat:repeat; background-size: auto; }
+	
+
+	header#masthead, nav#access, .wrapper {	max-width: 1080px; }
+
+	
+
+	.wrapper main {	background-color: #ffffff; }
+
+	h1, h2, h3, h4, h5, h6 { 
+		font: 2em/1.25em Alegreya; 
+		color: #427ea3;
+	}
+
+	h2 { font-size: 1.75em }
+	h3 { font-size: 1.5em }
+	h4 { font-size: 1.25em }
+	h5 { font-size: 1em }
+	h6 { font-size: .75em }
+
+	h2.title { margin-top: 0; padding-top: 1em; }
+	
+	/*  $GROUPEDCOLORS
+	_____________________________________ */
+
+	a:visited, section#search #search-form input:focus, article > h1.title a:link, article.answer .asker-question span.asker a:link, 
+	article .post-author a:link, article.link .title a, footer.metadata a:hover, .pop-up-box, .pop-up-box .title, 
+	.share-links a { color: #427ea3; }
+
+	a:link, .pagination > a:hover, .comic-pagination > a:hover, article > h1.title a:hover, 
+	article.answer .asker-question span.asker a:hover, article .post-author a:hover, article.link a:hover, 
+	footer.metadata .tags a:hover, footer.metadata ul.post-meta a:hover { color: #529ECC; }
+
+	section#search #search-form input, aside section .end a, .pagination > a, .comic-pagination > a, 
+	article.link .host a, footer.metadata a { color: #A77DC2; }
+
+	aside, aside section .title, .social-links ul li a, aside a:visited, aside section#twitter ul li a { color: #FFFFFF; }
+
+	/*  $HEADER
+	_____________________________________ */
+
+	header#masthead { background-color: #644b74; }
+
+	 
+
+		
+
+	
+
+	
+
+	header#masthead h1 a { 
+		height: 200px;
+		color: #444444;
+
+		-webkit-transition: all 0.5s ease;
+		-moz-transition:    all 0.5s ease;
+		-ms-transition:     all 0.5s ease;
+		-o-transition:      all 0.5s ease;
+		transition:         all 0.5s ease;		
+	}
+	
+	header h1 a span { display: none; }
+	nav#access h5 a span { display: none; }
+	
+
+	 
+
+	nav#access { background-color: #463e55; }
+
+	
+	
+	body { padding-top: 3.5em; }
+	
+	nav#access {
+		z-index: 999;
+		position: fixed;
+		top: -1px;
+		left: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+		
+
+	nav#access ul li a:link, nav#access ul li a:visited, 
+	nav#access .ico-search, nav#access .ico-bars,
+	section#search #search-form .ico-times { color: #ede5f3; }
+	nav#access ul li a:hover, nav#access .ico-search:hover,	
+	nav#access .ico-bars:hover, section#search #search-form .ico-times:hover { color: #5ACDB3; }
+
+	
+	nav#access h5.title { 
+		display: inline;
+		max-width: 100%;
+		margin: 0;
+		letter-spacing: -0.5px;
+		font-weight: 700;
+	}
+	nav#access h5.title a { 
+		-webkit-transition: all 0.5s ease;
+		-moz-transition:    all 0.5s ease;
+		-ms-transition:     all 0.5s ease;
+		-o-transition:      all 0.5s ease;
+		transition:         all 0.5s ease;
+
+		color: #444444; 
+	}
+	nav#access h5.title a:hover { 
+		text-decoration: none;
+		color: #5ACDB3; 
+	}
+	
+	nav#access ul { 
+		float: right;
+		line-height: inherit;
+	}
+	
+
+	
+	
+	nav#access .wrapper { padding: 0; }
+	nav#access h5.title { float: left; }
+	nav#access h5.title img {
+		display: block;
+		max-height: 80px;
+		padding: 0.5em;
+	}
+	nav#access ul { padding: 1.55em 1em; }
+	section#search #search-form { 
+		top: -1.6em;
+		padding: 0.5em 0.15em 0.5em 0.5em;
+	}
+	
+	
+	
+
+	#btt:hover { background-color: #529ECC; }
+
+	/*  $SEARCH
+	_____________________________________ */
+
+	section#search { width: 1080px; }
+
+	section#search #search-form { background-color: #463e55; }
+
+	
+	
+	section#search { top: 54px; } 
+	section#search #search-form { left: 0; max-width: 100%; }
+	
+	
+
+
+	/*  $ASIDE
+	_____________________________________ */
+
+	aside { background: #644b74 url(http://assets.tumblr.com/images/x.gif?v=1) no-repeat top center; }
+
+	
+
+	aside section .title { font-family: Alegreya; }	
+	
+	.social-links ul li a span.ico { background-color: #529ECC; }
+
+	/*  $FOOTER
+	_____________________________________ */
+
+	footer.sub-basement {
+		color: #cecece; 
+		background-color: #644b74;
+	}	
+	footer.sub-basement a { color: #cecece; }
+
+
+	/*  $POST
+	_____________________________________ */
+
+	article.post:nth-of-type(n+2),
+	section#notes ol li,
+	article blockquote,
+	#notes blockquote { border-color: #dccbe7; }
+	.comic-pagination>a img { max-height: 24px; }
+
+	/*  $POST-META
+	_____________________________________ */
+
+	
+
+
+	/*  $MEDIA-QUERIES
+	_____________________________________ */
+	
+	@media only screen and (max-width: 480px) {
+			
+
+		nav#access .wrapper > ul li a,
+		nav#access .wrapper > ul li span { border-color: #dccbe7; }
+		nav#access .wrapper > ul li span { border: none; color: #427ea3; }
+
+		nav#access .wrapper > ul li a:link, 
+		nav#access .wrapper > ul li a:visited { color: #427ea3; }
+		nav#access .wrapper > ul li a:hover { background-color: #dccbe7; }	
+		
+		
+		nav#access { 
+			float: left;
+			width: 100%;
+		}
+		nav#access .ico-bars { 
+			float: right;
+			padding-top: .25em;
+		}
+		nav#access ul { padding: 0; }
+		
+		nav#access .ico-bars { 
+			padding-top: 1.5em;
+		}
+		nav#access .wrapper > ul { top: 80px; }
+
+		section#search #search-form {
+			padding: 0.75em 0.5em;
+			top: -2em;
+		}
+		
+		
+
+	}
+
+	/* Custom CSS */
+	
+	</style>
+</head>
+<body class="<%= controller_name %> <%= action_name %>">
+	
+	<div id="wrappur">
+			<div id="headur">
+	
+	<%# link_to: comics_path (I guess all comics)%>
+	<%# going to want to have a loop that goes through all the comics (that have the published boolean (which has not yet been added) and generate the links to these comics. )%>
+	<%# will want to have an abstracted control thing for each page... with the underscore... _navigation first, previous, next, last, random (and all the appropriate code to not show the first link when you are on the first page, etc.) %>
+	<%# an admin toolbar and admin backend (also pages for users (which can only upload pages), so image uploader pages and whatnot.)%>
+	<%# a way to do custom layouts? Have this layout page CHECK the comic for styling attributes, default values for when not on a comic page and a good idea. %>
+	
+
+	<nav class="navbar transparent navbar-fixed-top" role="navigation">
+      <div class="container-fluid navbar-inner">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Webcomic", root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav nav-pills">
+				<% if current_page?(root_path) %>
+					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+				<% else %>
+					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+				<% end %>
+            
+<% @navbarComics.each do |comic| %>
+	<% if (current_page?(chapters_path) || current_page?(selected_chapters_path)) && comic == @comic %>
+			<li class="active"><%= link_to comic.title, comic %></li>
+	<% elsif (current_page?(pages_path) || current_page?(selected_pages_path)) && comic == @chapter.comic %>
+			<li class="active"><%= link_to comic.title, comic %></li>
+	<% else %>
+			<li><%= link_to comic.title, comic %></li>
+	<% end %>
+<% end %>
+       
+          </ul>
+		
+		<% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=  current_user.first.slice(0,1).capitalize + current_user.first.slice(1..-1) %> <%= current_user.last.slice(0,1).capitalize %>. <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+	            <li><%= link_to edit_user_registration_path, :style=>"color:#000000;" do %>My Profile<% end %></li>
+				<li><%= link_to assignments_path, :style=>"color:#000000;" do %>My Assignments<% end %></li>
+				<li class="divider"></li>
+                <li><%= link_to destroy_user_session_path, :method=>:delete, :style=>"color:#000000;" do %>Log Out<% end %></li>
+              </ul>
+            </li>
+          </ul>
+		<% end %>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+</div>
+<div id="contint">
+
+
+<div class="container-fluid thang" style="background:#FFFFFF">
+<div class="row">
+	<div class="container-fluid">
+	<%= yield %>
+	</div>
+</div>
+</div>
+
+</div>
+<div id="footur">
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"><%= link_to "Login", new_user_session_path %></p>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover({ html : true })
+})
+
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

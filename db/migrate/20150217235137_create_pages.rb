@@ -7,6 +7,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :row_order # for sorting
       t.integer :chapter_id
       t.string :alt_tag
+      t.integer :comic_id
 
       t.timestamps
     end

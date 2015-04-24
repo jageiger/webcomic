@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:selected, :show, :bookmark, :unbookmark]
-  before_action :qawsedrf, except: [:index, :selected, :show, :bookmark, :unbookmark, :new] #might need separate for new
+  before_action :qawsedrf, except: [:index, :selected, :show, :bookmark, :unbookmark, :new, :create] #might need separate for new
   before_action :qawsedrf_new, only: [:new]
+  before_action :qawsedrf_create, only: [:create]
   # GET /pages
   # GET /pages.json
   def index
@@ -147,6 +148,22 @@ class PagesController < ApplicationController
     
     def qawsedrf_new
       @chapter = Chapter.find(params[:chapter])
+      puts "!*!**!**^!"
+      puts @chapter.id
+      puts "!*!**!**^!"
+      @comic = Comic.find(@chapter.comic_id)
+      @assignments = Assignment.all.select { |t| t.comic_id == @comic.id }
+      not_nil = -1
+      if user_signed_in?
+        not_nil = current_user.id
+      end
+     unless current_user.try(:admin?) || @assignments.select { |t| t.user_id == not_nil }.any?
+        redirect_to comics_path
+     end  
+    end
+    
+    def qawsedrf_create
+      @chapter = Chapter.find(page_params[:chapter_id])
       puts "!*!**!**^!"
       puts @chapter.id
       puts "!*!**!**^!"
