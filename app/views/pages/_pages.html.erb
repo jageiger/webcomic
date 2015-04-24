@@ -21,7 +21,7 @@
 
 	<% else %>
 	
-		<div id="u_page_<%= page.id %>" style="display:none;">
+		<div id="b_page_<%= page.id %>" style="display:none;">
 		<%= form_tag bookmark_pages_url, method: "put", remote: true do %>
 			<%= hidden_field_tag("page_id", page.id) %>
 	     	<%= hidden_field_tag("count", @count) %>
@@ -29,7 +29,7 @@
 
 	    <% end %>
 		</div>
-	<div id="b_page_<%= page.id %>" style="display:block;">
+	<div id="u_page_<%= page.id %>" style="display:block;">
 		<%= form_tag unbookmark_pages_url, method: "put", remote: true do %>
 			<%= hidden_field_tag("page_id", page.id) %>
 	     	<%= hidden_field_tag("count", @count) %>

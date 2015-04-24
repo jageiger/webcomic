@@ -44,8 +44,9 @@ p {
 	
 	</style>
 </head>
-<body class="<%= controller_name %> <%= action_name %>">
-	
+
+<body class="<%= controller_name %> <%= action_name %>" data-no-turbolink="true">
+
 	<div id="wrappur">
 			<div id="headur">
 	
@@ -129,7 +130,7 @@ p {
 
 			<footer class="footer" id="thingTwo">
 			  <div class="container">
-			    <span>Hijinx High © 2015</span><span style="float:right;"><%= link_to "Login", new_user_session_path %></span>
+			    <div class="col-xs-6">Hijinx High © 2015</div><div class="col-xs-6 text-right"><%= link_to "Login", new_user_session_path %></div>
 			  </div>
 			</footer>
 
@@ -152,6 +153,57 @@ $(function () {
 
 </script>
 
+<% unless (current_page?(selected_pages_path)) %>
+<script>
+var footer;
+
+var orig;
+
+footer = function() {
+	var one = $('#thingOne').height(),
+	two = 60+200+50, // 60 = footerHeight, 200 = bannerHeight, 50 = navBarHeight 
+	current_height = parseInt(one + two);
+	orig = current_height;
+	if(current_height<parseInt($(window).height())){
+		remaining_height = parseInt($(window).height() - two); 
+		$('#thingOne').height(remaining_height);
+	};
+};
+
+$(document).ready(footer);
+
+$(document).on('page:load', footer);
+
+
+
+window.addEventListener('resize', function(event){
+  	var one = $('#thingOne').height(),
+	two = 60+200+50, 
+	current_height = parseInt(one + two); 
+	if(current_height<parseInt($(window).height())){
+		remaining_height = parseInt($(window).height() - two); 
+		$('#thingOne').height(remaining_height);
+	}
+	else if(current_height>orig){
+		remaining_height = parseInt($(window).height() - two); 
+		$('#thingOne').height(remaining_height);
+	};
+});
+
+/*
+
+var body = document.body,
+    html = document.documentElement;
+
+var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+alert("body.scrollHeight: " + body.scrollHeight + " | body.offsetHeight:" + body.offsetHeight + " | html.clientHeight: " + html.clientHeight + " | html.scrollHeight: " + html.scrollHeight + " | html.offsetHeight: " + html.offsetHeight);
+
+
+*/
+</script>
+<% end %>
 
 
 
