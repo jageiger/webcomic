@@ -1,8 +1,13 @@
-<% if current_user.try(:admin?) %>
+<% if user_signed_in? %>
+
 
 <h1>Listing comics</h1>
 
+<% if current_user.admin? %>
 <table class="table table-bordered table-striped" id="sortable">
+<% else %>
+<table class="table table-bordered table-striped">
+<% end %>
   <thead>
     <tr>
       <th>Name</th>
@@ -14,6 +19,18 @@
 
   <tbody>
     <% @comics.each do |comic| %>
+
+	   <% @assignments = Assignment.all.select { |t| t.comic_id == comic.id } %>
+	   <% @assignments = @assignments.select { |t| t.user_id == current_user.id } %>
+	   <% if current_user.try(:admin?) || @assignments.any? %>
+	     <% @assignment = @assignments.first %>
+		 <% if current_user.try(:admin?) || @assignment.role == 1 %>
+		<% puts "=-=-=-=-=-=-="%>
+		<% puts current_user.id %>
+		<% puts "=-=-=-=-=-=-="%>
+
+
+
       <tr data-item-id=<%= "#{comic.id}" %> class="item">
         <td><%= comic.title %></td>
         <td><%= Chapter.all.select { |t| t.comic == comic }.count %></td>
@@ -21,7 +38,19 @@
         <td><%= link_to 'Show', comic, :class => 'btn btn-default pull-right' %></td>
         <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
         <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+		 <% else %>
+		
+		<tr data-item-id=<%= "#{comic.id}" %> class="item">
+        <td><%= comic.title %></td>
+        <td><%= Chapter.all.select { |t| t.comic == comic }.count %></td>
+        <td><%= comic.description %></td>
+        <td><%= link_to 'Show', comic, :class => 'btn btn-default pull-right' %></td>
+        <td></td>
+        <td></td>
       </tr>
+		<% end %>
+		<% end %>
     <% end %>
   </tbody>
 </table>

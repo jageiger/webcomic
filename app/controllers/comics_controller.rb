@@ -1,7 +1,8 @@
 class ComicsController < ApplicationController
   before_action :set_comic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_admin, except: [:index, :show]
+  before_action :check_admin, except: [:index, :show, :edit, :update]
+  before_action :check_role, only: [:edit, :update]
 
   # GET /comics
   # GET /comics.json
@@ -88,6 +89,23 @@ class ComicsController < ApplicationController
     def check_admin
       unless current_user.try(:admin?)
         redirect_to comics_path
+      end
+    end
+    
+    def check_role
+      unless user_signed_in? # if you ain't signed in, you can't edit
+        redirect_to comics_path
+      else # you're signed in...
+         @assignments = Assignment.all.select { |t| t.comic_id == @comic.id }
+         @assignments = @assignments.select { |t| t.user_id == current_user.id }
+         unless current_user.try(:admin?) || @assignments.any?
+           redirect_to comics_path
+         else
+           @assignment = @assignments.first
+           unless current_user.try(:admin?) || @assignment.role == 1
+             redirect_to comics_path
+           end
+         end  
       end
     end
 end
