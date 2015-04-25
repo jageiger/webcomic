@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=75ff60d174af47d7ea271d82d4fe1151"></script>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+<!--
+
+Simple Webcomic Theme v4.0.0
+https://github.com/geoneo1/SimpleWebcomicTheme
+
+Design by Mr. Geo Neo
+http://geoneo.co.uk | @mrgeoneo
+
+GNU General Public License v2 or later
+http://www.gnu.org/licenses/gpl-2.0.html
+
+-->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Hijinx High</title>		
+
+	<link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar/octahedron_closed_128.png">
+	<link rel="apple-touch-icon-precomposed" href="http://assets.tumblr.com/images/default_avatar/octahedron_closed_128.png">
+	<link rel="alternate" type="application/rss+xml" title="Hijinx High RSS" href="http://hijinx-high.tumblr.com/rss"/>
+
+	<link rel="stylesheet" href="http://static.tumblr.com/gyycyeo/eIAn34gig/normalize.css">
+	<link rel="stylesheet" href="http://static.tumblr.com/sdujjmx/SCsnky5on/icomoon.io.css">
+	<link rel="stylesheet" href="http://static.tumblr.com/gyycyeo/EwYnj5kon/main.css">
+
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Alegreya:700,700italic,400italic,400|Alegreya:400,300,700' rel='stylesheet' type='text/css'>
+
+
+
+	
+	 
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <link href="http://fonts.googleapis.com/css?family=Alegreya:700,700italic,400italic,400|Alegreya:400,300,700" rel="stylesheet" type="text/css">
+
+	<style>
+	    body {
+	        background-color: #FF0000;
+	        background-attachment:fixed;
+	    }
+	   /* not working
+		$bodyBackground: #e0e0e0;
+		$brand-primary: darken(#FF0000, 6.5%) !default; // #337ab7
+	   */
+	</style>
+
+
+	<!-- Theme CSS -->
+	<style>
+
+	/*  $ELEMENTS
+	_______________________________________________________ */
+
+	body { 
+	font: 1em/1.75em  Alegreya; 
+	color: #427ea3;
+	background: #FAFAFA;
+	}
+
+	
+	body { background: #FAFAFA url(http://static.tumblr.com/d249339336e54c5916984cf820ba72c2/ijrfayn/DSJnn5qtv/tumblr_static_26km4qt3joo0o0sg88o0sg0gk.png) no-repeat top center; background-attachment:fixed;}
+	
+
+	
+	body { background-repeat:repeat; background-size: auto; }
+	
+
+	header#masthead, nav#access, .wrapper {	max-width: 1080px; }
+
+	
+
+	.wrapper main {	background-color: #ffffff; }
+
+	h1, h2, h3, h4, h5, h6 { 
+		font: 2em/1.25em Alegreya; 
+		color: #427ea3;
+	}
+
+	h2 { font-size: 1.75em }
+	h3 { font-size: 1.5em }
+	h4 { font-size: 1.25em }
+	h5 { font-size: 1em }
+	h6 { font-size: .75em }
+
+	h2.title { margin-top: 0; padding-top: 1em; }
+	
+	/*  $GROUPEDCOLORS
+	_____________________________________ */
+
+	a:visited, section#search #search-form input:focus, article > h1.title a:link, article.answer .asker-question span.asker a:link, 
+	article .post-author a:link, article.link .title a, footer.metadata a:hover, .pop-up-box, .pop-up-box .title, 
+	.share-links a { color: #427ea3; }
+
+	a:link, .pagination > a:hover, .comic-pagination > a:hover, article > h1.title a:hover, 
+	article.answer .asker-question span.asker a:hover, article .post-author a:hover, article.link a:hover, 
+	footer.metadata .tags a:hover, footer.metadata ul.post-meta a:hover { color: #529ECC; }
+
+	section#search #search-form input, aside section .end a, .pagination > a, .comic-pagination > a, 
+	article.link .host a, footer.metadata a { color: #A77DC2; }
+
+	aside, aside section .title, .social-links ul li a, aside a:visited, aside section#twitter ul li a { color: #FFFFFF; }
+
+	/*  $HEADER
+	_____________________________________ */
+
+	header#masthead { background-color: #644b74; }
+
+	header#masthead h1 a { 
+		height: 200px;
+		color: #444444;
+
+		-webkit-transition: all 0.5s ease;
+		-moz-transition:    all 0.5s ease;
+		-ms-transition:     all 0.5s ease;
+		-o-transition:      all 0.5s ease;
+		transition:         all 0.5s ease;		
+	}
+	
+	header h1 a span { display: none; }
+	nav#access h5 a span { display: none; }
+	
+	nav#access { background-color: #463e55; }
+
+	body { padding-top: 3.5em; }
+	
+	nav#access {
+		z-index: 999;
+		position: fixed;
+		top: -1px;
+		left: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+		
+	nav#access ul li a:link, nav#access ul li a:visited, 
+	nav#access .ico-search, nav#access .ico-bars,
+	section#search #search-form .ico-times { color: #ede5f3; }
+	nav#access ul li a:hover, nav#access .ico-search:hover,	
+	nav#access .ico-bars:hover, section#search #search-form .ico-times:hover { color: #5ACDB3; }
+
+	nav#access h5.title { 
+		display: inline;
+		max-width: 100%;
+		margin: 0;
+		letter-spacing: -0.5px;
+		font-weight: 700;
+	}
+	nav#access h5.title a { 
+		-webkit-transition: all 0.5s ease;
+		-moz-transition:    all 0.5s ease;
+		-ms-transition:     all 0.5s ease;
+		-o-transition:      all 0.5s ease;
+		transition:         all 0.5s ease;
+
+		color: #444444; 
+	}
+	nav#access h5.title a:hover { 
+		text-decoration: none;
+		color: #5ACDB3; 
+	}
+	
+	nav#access ul { 
+		float: right;
+		line-height: inherit;
+	}	
+	
+	nav#access .wrapper { padding: 0; }
+	nav#access h5.title { float: left; }
+	nav#access h5.title img {
+		display: block;
+		max-height: 50px;
+		padding: 0.5em;
+	}
+	nav#access ul { padding: 1.55em 1em; }
+	section#search #search-form { 
+		top: -1.6em;
+		padding: 0.5em 0.15em 0.5em 0.5em;
+	}
+
+	#btt:hover { background-color: #529ECC; }
+
+	/*  $SEARCH
+	_____________________________________ */
+
+	section#search { width: 1080px; }
+
+	section#search #search-form { background-color: #463e55; }
+	
+	section#search { top: 54px; } 
+	section#search #search-form { left: 0; max-width: 100%; }	
+
+	/*  $ASIDE
+	_____________________________________ */
+
+	aside { background: #644b74 url(http://assets.tumblr.com/images/x.gif?v=1) no-repeat top center; }
+
+	aside section .title { font-family: Alegreya; }	
+	
+	.social-links ul li a span.ico { background-color: #529ECC; }
+
+	/*  $FOOTER
+	_____________________________________ */
+
+	footer.sub-basement {
+		color: #cecece; 
+		background-color: #644b74;
+	}	
+	footer.sub-basement a { color: #cecece; }
+
+
+	/*  $POST
+	_____________________________________ */
+
+	article.post:nth-of-type(n+2),
+	section#notes ol li,
+	article blockquote,
+	#notes blockquote { border-color: #dccbe7; }
+	.comic-pagination>a img { max-height: 24px; }
+
+	/*  $POST-META
+	_____________________________________ */
+
+	
+
+
+	/*  $MEDIA-QUERIES
+	_____________________________________ */
+	
+	@media only screen and (max-width: 480px) {
+			
+
+		nav#access .wrapper > ul li a,
+		nav#access .wrapper > ul li span { border-color: #dccbe7; }
+		nav#access .wrapper > ul li span { border: none; color: #427ea3; }
+
+		nav#access .wrapper > ul li a:link, 
+		nav#access .wrapper > ul li a:visited { color: #427ea3; }
+		nav#access .wrapper > ul li a:hover { background-color: #dccbe7; }	
+		
+		
+		nav#access { 
+			float: left;
+			width: 100%;
+		}
+		nav#access .ico-bars { 
+			float: right;
+			padding-top: .25em;
+		}
+		nav#access ul { padding: 0; }
+		
+		nav#access .ico-bars { 
+			padding-top: 1.5em;
+		}
+		nav#access .wrapper > ul { top: 80px; }
+
+		section#search #search-form {
+			padding: 0.75em 0.5em;
+			top: -2em;
+		}
+	}
+
+	/* Custom CSS */
+	
+	</style>
+
+	<!-- Scripts -->
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-instagram/0.2.2/jquery.instagram.min.js"></script>
+	
+	<script>
+	var SWCTheme = new function() {
+		var win, body, doc, $;
+		this.init = function(jQuery) {
+			$ = jQuery; win = $(window); body = $("body"); doc = $(document);
+			
+			var nav_access = $("nav#access");
+
+			
+			// masthead drop shadow
+			win.scroll(function(){
+				if(win.scrollTop()>20){
+					nav_access.addClass("scroll")
+				} else {
+					if(nav_access.hasClass("scroll")){
+						nav_access.removeClass("scroll")
+					}
+				}
+			});
+			// ===
+			
+
+			// Mobile nav
+			nav_access.find(".ico-bars").click(function () {
+				nav_access.find(".wrapper > ul").slideToggle("slow");
+				return false;
+			});
+			// ===
+
+			// Show/Hide Search
+			var search_bar = $("section#search");
+			search_bar.hide();
+			$(".ico-search, .ico-times").click(function() {
+				search_bar.fadeToggle( "fast", "linear" ), function() {
+					$(this).find("input").first().focus();
+				};		
+				return false;
+			});
+			// ===
+
+			// Pagination Page
+			
+				var item = $("#pagination-bottom > nav").first();
+				
+				// Clone Pagination
+				$("#pagination-top").append(item.clone());
+				
+
+				
+				// Move Webcomic Pagination
+				$("#pagination-comic").append(item.clone());
+				
+				if(item.hasClass("comic-pagination"))
+					item.hide();
+			
+			// ===
+
+			// Pagination Post
+			 
+			// ===
+
+			// Slim wrapper fallback
+			var section = $(".wrapper");
+			var width = section.width();
+				if (width < 801)
+					section.first().addClass("wrapper-slim");
+			// ===
+
+			// Social pop-up
+			$(".toggle").click(function() {
+				$(this).parent().find(".pop-up-box").toggleClass("visible"); 
+				return false;
+			});
+			// ===
+
+			// Back to top button
+			var btt_button = $("#btt");
+			btt_button.click(function() {
+				$('html, body').animate({scrollTop : 0}, 300); 
+			});
+
+			doc.scroll(function() {
+				if(doc.scrollTop() > 300 ) {
+					if( !btt_button.hasClass("active") )
+						btt_button.fadeIn(500, function() {
+							$(this).addClass("active");
+						});
+				} 
+				else {
+					if( btt_button.hasClass("active") ) {
+						btt_button.fadeOut(500, function() {
+							$(this).removeClass("active");
+						});
+					}
+				}
+			});
+			// ===
+
+			
+
+		}; // init()
+	};
+
+	$(document).ready(function() {
+		SWCTheme.init($);
+	});
+	</script>
+
+	
+
+	
+
+<link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=hijinx-high" />
+<script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=129874daf82ea8718007ffa601fae0cb"></script>
+<link rel="stylesheet" type="text/css" href="http://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3">
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
+<meta name="keywords" content="webcomic,comic,high,hijinx,hijinx high" />
+
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995" /><meta property="og:title" content="Hijinx High" /><meta property="og:url" content="http://hijinx-high.tumblr.com/?og=1" /><meta property="og:description" content="" /><meta property="og:type" content="tumblr-feed:tumblelog" /><meta property="og:image" content="http://assets.tumblr.com/images/default_avatar/octahedron_closed_128.png" /><meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=hijinx-high" /><meta property="al:ios:app_name" content="Tumblr" /><meta property="al:ios:app_store_id" content="305343404" /><meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=hijinx-high" /><meta property="al:android:app_name" content="Tumblr" /><meta property="al:android:package" content="com.tumblr" /><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:site" content="tumblr" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="hijinx-high" /><meta name="twitter:description" content=" " /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=hijinx-high&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=hijinx-high&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=hijinx-high&amp;referrer=twitter-cards" />
+
+</head>
+
+<body data-urlencoded-name="hijinx-high" class="<%= controller_name %> <%= action_name %> regular  index-page  avatar-style-circle">
+
+	<header id="masthead">
+		<div>
+			<h1 class="title">
+				<a href="http://hijinx-high.tumblr.com" title="Home">
+				
+				</a>
+			</h1>
+		</div>
+		
+			<nav id="access">
+				<div class="wrapper">
+				<span class="ico ico-bars"></span>
+
+				
+				
+				<h5 class="title">
+					<a href="http://hijinx-high.tumblr.com" title="Home"><span>Hijinx High</span>
+					
+						<img src="http://static.tumblr.com/d55c53e2a134ce76bb2381b8a5ba830d/ijrfayn/xINnn5qou/tumblr_static_20nc0p3czb0gsksks48osk44c.png" alt="Hijinx High">
+					
+					</a>
+				</h5>
+				
+				
+				
+				<ul>
+					
+					<li><a href="http://hijinx-high.tumblr.com" title="Home">Home</a></li>
+									
+				
+					
+					
+					
+					<li><a href="/archive" title="Archive">Archive</a></li>
+					
+					
+					<li><span class="ico-search" title="Search"></span></li>
+					
+				</ul>	
+			
+				<section id="search" role="search">
+					<form id="search-form" action="/search" method="get">
+						<input type="text" name="q" value="" placeholder="Search keywords&hellip;">
+						<span class="ico-times" title="Close"></span>
+					</form>
+				</section>
+				</div>
+			</nav>
+			
+			
+			
+			
+			
+				<nav class="navbar transparent navbar-fixed-top" role="navigation">
+			      <div class="container-fluid navbar-inner">
+			        <div class="navbar-header">
+			          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			          <%= link_to "Webcomic", root_path, class: 'navbar-brand' %>
+			        </div>
+			        <div id="navbar" class="navbar-collapse collapse">
+			          <ul class="nav navbar-nav nav-pills">
+							<% if current_page?(root_path) %>
+								<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+							<% else %>
+								<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+							<% end %>
+
+			<% @navbarComics.each do |comic| %>
+				<% if (current_page?(chapters_path) || current_page?(selected_chapters_path)) && comic == @comic %>
+						<li class="active"><%= link_to comic.title, comic %></li>
+				<% elsif (current_page?(pages_path) || current_page?(selected_pages_path)) && comic == @chapter.comic %>
+						<li class="active"><%= link_to comic.title, comic %></li>
+				<% else %>
+						<li><%= link_to comic.title, comic %></li>
+				<% end %>
+			<% end %>
+
+			          </ul>
+
+					<% if user_signed_in? %>
+			          <ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=  current_user.first.slice(0,1).capitalize + current_user.first.slice(1..-1) %> <%= current_user.last.slice(0,1).capitalize %>. <span class="caret"></span></a>
+			              <ul class="dropdown-menu" role="menu">
+				            <li><%= link_to edit_user_registration_path, :style=>"color:#000000;" do %>My Profile<% end %></li>
+							<li><%= link_to assignments_path, :style=>"color:#000000;" do %>My Assignments<% end %></li>
+							<li class="divider"></li>
+			                <li><%= link_to destroy_user_session_path, :method=>:delete, :style=>"color:#000000;" do %>Log Out<% end %></li>
+			              </ul>
+			            </li>
+			          </ul>
+					<% end %>
+			        </div><!--/.nav-collapse -->
+			      </div>
+			    </nav>
+			
+		
+	</header>
+
+	<div class="wrapper">
+	<main>
+		
+		<div class="container-fluid thang" style="background:#FFFFFF">
+		<div class="row">
+			<div class="container-fluid">
+				<p class="notice"><%= notice %></p>
+			    <p class="alert"><%= alert %></p>
+			<%= yield %>
+			</div>
+		</div>
+		</div>
+	</main>
+	<aside>
+		<section class="postscript">
+			<h4 class="title">About</h4> 
+		</section>
+	</aside>
+	<footer class="sub-basement">
+		<span class="copyright">Hijinx High &copy; 2015 </span>
+		<span class="tumblr"><%= link_to "Login", new_user_session_path %></span>		
+	</footer>
+
+	
+	</div> <!-- close .wrapper -->
+	<div id="btt"><span class="ico-arrow-up"></span></div>
+<!-- BEGIN TUMBLR CODE --><iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target"></iframe>
+
+
+<script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+        var addthis_enabled = true;
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    postATMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    postATMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "https://secure.assets.tumblr.com/analytics.html?cd0bd711bd372599001af51ceb2e0aaf#" + 
+                              "http://hijinx-high.tumblr.com";
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/?route=%2F'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+        function postATMessage() {
+            if (addthis_enabled && analytics_iframe_loaded) {
+                analytics_frame.contentWindow.postMessage('enable_addthis', analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+    })();
+</script><script type="text/javascript">!function(s){s.src='https://www.tumblr.com/impixu?T=1429679652&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvaGlqaW54LWhpZ2gudHVtYmxyLmNvbVwvIiwicmVxdHlwZSI6MCwicm91dGUiOiJcLyJ9&U=MJGAEJAFCH&K=e9249f9b5a118c0f3f139830698be43fbd58b2abeb790d401370e1c26f83eeb2&R=http%3A%2F%2Fhijinx-high.tumblr.com%2Fpost%2F116994658752%2Ffirst-three-pages-of-my-upcoming-webcomic-hijinx'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://www.tumblr.com/impixu?T=1429679652&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvaGlqaW54LWhpZ2gudHVtYmxyLmNvbVwvIiwicmVxdHlwZSI6MCwicm91dGUiOiJcLyIsIm5vc2NyaXB0IjoxfQ==&U=MJGAEJAFCH&K=e48ab1b841ab50cd8c82f44ef95df2341dba3e5a77c8a5c210cef3c75e4dbd48&R=http%3A%2F%2Fhijinx-high.tumblr.com%2Fpost%2F116994658752%2Ffirst-three-pages-of-my-upcoming-webcomic-hijinx"></noscript><script>
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=52f4655fc08c33e92bbf84738fc9cc2c';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><script type="text/javascript">!function(s){s.src='https://www.tumblr.com/impixu?T=1429679652&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2hpamlueC1oaWdoLnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8iLCJwb3N0cyI6W3sicG9zdGlkIjoiMTE2OTk0NzM2NjUyIiwiYmxvZ2lkIjoiMjMyNzQ1NDc3Iiwic291cmNlIjozM31dfQ==&U=IBNIIHEHDK&K=3a70c3be737d21e75f3029eec4aa51d6a7b6be4fb9c7f1f4ebb601158ac4d432&R=http%3A%2F%2Fhijinx-high.tumblr.com%2Fpost%2F116994658752%2Ffirst-three-pages-of-my-upcoming-webcomic-hijinx'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://www.tumblr.com/impixu?T=1429679652&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2hpamlueC1oaWdoLnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8iLCJwb3N0cyI6W3sicG9zdGlkIjoiMTE2OTk0NzM2NjUyIiwiYmxvZ2lkIjoiMjMyNzQ1NDc3Iiwic291cmNlIjozM31dLCJub3NjcmlwdCI6MX0=&U=IBNIIHEHDK&K=0cbe9ab654e306b86d5675e99a5ca5b5cba27a4f4b4c482ef5649f688f038269&R=http%3A%2F%2Fhijinx-high.tumblr.com%2Fpost%2F116994658752%2Ffirst-three-pages-of-my-upcoming-webcomic-hijinx"></noscript><script>
+                    (function() {
+                        var s = document.createElement('script');
+                        var el = document.getElementsByTagName('script')[0];
+                        s.src = ('https:' == document.location.protocol ? 'https://s' : 'http://l') + '.yimg.com/ss/rapid-3.18.1.js';
+                        s.onload = function(){
+                            var YAHOO = window.YAHOO;
+                            if (YAHOO) {
+                                var keys = {
+                                    pd:'/',
+                                    _li:0,
+                                    b_id:232745477,
+                                    i_rad:0,
+                                    i_strm:0,
+                                    test_id: 'OLD' // version bucket
+
+                                };
+                                var conf = {
+                                                                        spaceid:1197716038,
+                                    client_only:1,
+                                    yql_enabled:false,
+                                    keys:keys,
+                                    nol:1
+                                };
+                                YAHOO.rapid = new YAHOO.i13n.Rapid(conf);
+                            }
+                        };
+                        el.parentNode.insertBefore(s, el);
+                    })();
+                </script><script>
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=52f4655fc08c33e92bbf84738fc9cc2c';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><iframe id="tumblr_controls" class="tumblr_controls" width="1" height="1" frameborder="0" scrolling="no" src="https://secure.assets.tumblr.com/assets/html/iframe/o.html?_v=57c1ce299ce6fe18cf9892e46fc17311#src=http%3A%2F%2Fhijinx-high.tumblr.com%2F&amp;lang=en_US&amp;name=hijinx-high&amp;avatar=http%3A%2F%2Fassets.tumblr.com%2Fimages%2Fdefault_avatar%2Foctahedron_closed_64.png&amp;title=Hijinx+High&amp;url=http%3A%2F%2Fhijinx-high.tumblr.com%2F&amp;page_slide=slide"></iframe><div id="teaser_iframe_container" style="display:none;"><iframe scrolling="no" frameborder="0" src="http://assets.tumblr.com/assets/html/iframe/teaser.html?_v=39eb45383a7308015502923eaafb6722#src=http%3A%2F%2Fhijinx-high.tumblr.com%2F&amp;lang=en_US&amp;name=hijinx-high&amp;avatar=http%3A%2F%2Fassets.tumblr.com%2Fimages%2Fdefault_avatar%2Foctahedron_closed_64.png&amp;title=Hijinx+High&amp;url=http%3A%2F%2Fhijinx-high.tumblr.com%2F&amp;page_slide=slide" id="teaser_iframe" width="1" height="1"></iframe></div><script type="text/javascript">
+    (function(Tumblr){
+        var follow_iframe_initialized = false;
+        if (Tumblr.FollowTeaser && Tumblr.PostMessageListener) {
+            // Don't do anything until the first initialize event
+            Tumblr.PostMessageListener.initialize(function(message, origin) {
+                if (follow_iframe_initialized || message.length < 2) return;
+
+                if (message[0] === 'follow_iframe' && message[1] === 'enable') {
+                    Tumblr.FollowTeaser.current_page = 1;
+                    Tumblr.FollowTeaser.infer_infinite_scroll = true;
+                    Tumblr.FollowTeaser.create_from_tumblr_controls("http:\/\/assets.tumblr.com\/assets\/html\/iframe\/follow.html?_v=ae84e24a8ed67a5b853192935ec45b76");
+                    Tumblr.FollowTeaser.scroll_listener(true);
+                    follow_iframe_initialized = true;
+                }
+            });
+        }
+    })(this.Tumblr || (this.Tumblr = {}));
+</script><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><!-- END TUMBLR CODE -->
+
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover({ html : true })
+})
+</script>
+</body>
+</html>

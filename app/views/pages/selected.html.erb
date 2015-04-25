@@ -1,6 +1,6 @@
 
-<div class="page-header">
-  <h1><%= @chapter.comic.title %> <small><%= @chapter.title %></small></h1>
+<div class="page-header text-center">
+  <h1><%= @chapter.comic.title %><br><small><%= @chapter.title %></small></h1>
 </div>
 <% @assignments = Assignment.all.select { |t| t.comic_id == @chapter.comic_id } %>
 <% not_nil = -1 %>
@@ -38,22 +38,26 @@
 
 <% else %>
 
-<%= page_entries_info @pages %>
+<% page_entries_info @pages %>
 
 <div class="infinite-table" style="text-align: center">
 	<div class="boxie">
     <%= render :partial => 'pages', :object => @pages, :chapter => @chapter %>
 	</div>
 
+<!-- Maybs I can wrap dis with an if and only show it if there are more pages to load. That's a redundancy that should cover it incase the js gets stuck on the last page (but doesn't cover any other page stuck repeating...)-->
 		<div class="pagination controls">
 	    <%= link_to_next_page @pages, 'Next Page', :remote => true, params: params %>
+		
 	  </div>
+		<% page_entries_info @pages %>
+		<br>
+		<!-- if more chapters, controls to go to next or previous... -->
+		<%#= link_to 'Back to Chapters', selected_chapters_path(comic: @chapter.comic) %>
 </div>
 
 
-<%= page_entries_info @pages %>
 
-<%= link_to 'Toc', selected_chapters_path(comic: @chapter.comic) %>
 
 
 <% end %>

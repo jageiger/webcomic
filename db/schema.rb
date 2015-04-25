@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20150411040511) do
     t.text     "description"
     t.integer  "row_order"
     t.integer  "chapter_id"
+    t.string   "alt_tag"
+    t.integer  "comic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

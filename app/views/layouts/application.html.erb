@@ -5,9 +5,48 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body class="<%= controller_name %> <%= action_name %>">
+  <link href="http://fonts.googleapis.com/css?family=Alegreya:700,700italic,400italic,400|Alegreya:400,300,700" rel="stylesheet" type="text/css">
+
+
+
+<style>
+body { 
+font: 1.5em/1.75em  Alegreya; 
+}
+h1 {
+	color: #A77DC2;
+	size:56px;
+	margin-top: -12px;
 	
+}
+
+p {
+	color: #A77DC2;
+}
+
+
+	/*  $ELEMENTS
+	_______________________________________________________ */
+
+
+	
+	body { background: #FAFAFA url(http://static.tumblr.com/d249339336e54c5916984cf820ba72c2/ijrfayn/DSJnn5qtv/tumblr_static_26km4qt3joo0o0sg88o0sg0gk.png) no-repeat top center; background-attachment:fixed;}
+	
+
+	
+	body { background-repeat:repeat; background-size: auto; }
+	
+	.container{
+	padding-left: 28px;
+	padding-top: 17px;
+	padding-right: 28px;
+}
+	
+	</style>
+</head>
+
+<body class="<%= controller_name %> <%= action_name %>" data-no-turbolink="true">
+
 	<div id="wrappur">
 			<div id="headur">
 	
@@ -17,10 +56,9 @@
 	<%# an admin toolbar and admin backend (also pages for users (which can only upload pages), so image uploader pages and whatnot.)%>
 	<%# a way to do custom layouts? Have this layout page CHECK the comic for styling attributes, default values for when not on a comic page and a good idea. %>
 	
-	
-	
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-      <div class="container">
+
+	<nav class="navbar transparent navbar-fixed-top" role="navigation">
+      <div class="container-fluid navbar-inner">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -28,15 +66,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Webcomic", root_path, class: 'navbar-brand' %>
+          <ul class="nav navbar-nav nav-pills">
+				<% if current_page?(root_path) %>
+					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
+				<% else %>
+					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
+				<% end %>
+			</ul>
+
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-				<% if current_page?(root_path) %>
-					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
-				<% else %>
-					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
-				<% end %>
+          <ul class="nav navbar-nav nav-pills">
+
             
 <% @navbarComics.each do |comic| %>
 	<% if (current_page?(chapters_path) || current_page?(selected_chapters_path)) && comic == @comic %>
@@ -55,10 +96,10 @@
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=  current_user.first.slice(0,1).capitalize + current_user.first.slice(1..-1) %> <%= current_user.last.slice(0,1).capitalize %>. <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-	            <li><%= link_to edit_user_registration_path do %>My Profile<% end %></li>
-				<li><%= link_to assignments_path do %>My Assignments<% end %></li>
+	            <li><%= link_to edit_user_registration_path, :style=>"color:#000000;" do %>My Profile<% end %></li>
+				<li><%= link_to assignments_path, :style=>"color:#000000;" do %>My Assignments<% end %></li>
 				<li class="divider"></li>
-                <li><%= link_to destroy_user_session_path, :method=>:delete do %>Log Out<% end %></li>
+                <li><%= link_to destroy_user_session_path, :method=>:delete, :style=>"color:#000000;" do %>Log Out<% end %></li>
               </ul>
             </li>
           </ul>
@@ -67,32 +108,129 @@
       </div>
     </nav>
 	
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
 
 </div>
 <div id="contint">
+	<div class="offset" style="height:50px;background-color:#000000;">
+	</div>
+	<div class="bananer" >
+		<%= image_tag "tempBanner.jpg", :class => "img-responsive center-block embed-responsive-item", :id =>"banner" %>
+	</div>
 
-
-<div class="container-fluid">
+<div class="container-fluid thang" style="background:#FFFFFF">
+	
 <div class="row">
-	<div class="container-fluid">
-	<%= yield %>
+	<div class="container-fluid" id="thingOne">
+		
+
+			<div class="customNotice"><%= notice %></div>
+	    	<div class="customAlert"><%= alert %></div>
+
+			<%= yield %>
+
+			<div id="footur" class="">
+
+			<footer class="footer" id="thingTwo">
+			  <div class="container">
+			    <div class="col-xs-6">Hijinx High © 2015</div><div class="col-xs-6 text-right"><%= link_to "Terms of Service", new_user_session_path, :style=>"color:#cecece;" %></div>
+			  </div>
+			</footer>
+
+			</div>
+			</div>
+		</tr>
 	</div>
 </div>
 </div>
 
 </div>
-<div id="footur">
 
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted"><%= link_to "Login", new_user_session_path %></p>
-  </div>
-</footer>
 
-</div>
-</div>
+<script>
+$(function () {
+	$('[data-toggle="popover"]').popover({ html : true })
+})
+
+$('#navbar').on('show.bs.collapse', function() {
+    $('.nav-pills').addClass('nav-stacked');
+});
+
+//Unstack menu when not collapsed
+$('#navbar').on('hide.bs.collapse', function() {
+    $('.nav-pills').removeClass('nav-stacked');
+});
+
+
+
+
+</script>
+
+<% unless (current_page?(selected_pages_path)) %>
+<script>
+var footer;
+
+var orig;
+
+/*
+var body = document.body,
+    html = document.documentElement;
+
+var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+// alert("body.scrollHeight: " + body.scrollHeight + " | body.offsetHeight:" + body.offsetHeight + " | html.clientHeight: " + html.clientHeight + " | html.scrollHeight: " + html.scrollHeight + " | html.offsetHeight: " + html.offsetHeight);
+
+// alert(parseInt($(window).height()));
+*/
+
+
+footer = function() {
+	// 60 = footerHeight, 200 = bannerHeight, 50 = navBarHeight
+	var bnr;
+	$("#banner").load(function() {
+        bnr = $(this).height();
+		//alert(bnr);
+		var one = $('#thingOne').height(),
+		two = 60+bnr+50,  
+		current_height = parseInt(one + two);
+		window.orig = current_height;
+		//alert(orig);
+		if(current_height<parseInt($(window).height())){
+			remaining_height = parseInt($(window).height() - two); 
+			$('#thingOne').height(remaining_height);
+		};
+    });
+	
+};
+
+$(document).ready(footer);
+
+$(document).on('page:load', footer);
+
+window.addEventListener('resize', function(event){
+	//alert(orig);
+  	var one = $('#thingOne').height(),
+	bnr = parseInt($('#banner').height()),
+	two = 60+bnr+50,
+	current_height = parseInt(one + two); 
+	//alert(bnr);
+	if(current_height<parseInt($(window).height())){
+		remaining_height = parseInt($(window).height() - two); 
+		$('#thingOne').height(remaining_height);
+	}
+	else if(current_height>orig){
+		remaining_height = parseInt($(window).height() - two); 
+		$('#thingOne').height(remaining_height);
+	};
+});
+
+
+</script>
+<% end %>
+
+
+
 
 </body>
 

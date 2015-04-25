@@ -60,6 +60,9 @@ GEM
       sass (~> 3.2)
     hike (1.2.3)
     i18n (0.7.0)
+    icomoon-rails (0.1.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -153,6 +156,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-sass
+  icomoon-rails
   jbuilder (~> 2.0)
   jquery-infinite-pages
   jquery-rails
