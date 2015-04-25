@@ -180,8 +180,9 @@ footer = function() {
 		//alert(bnr);
 		var one = $('#thingOne').height(),
 		two = 60+bnr+50,  
-		current_height = parseInt(one + two),
-		orig = current_height;
+		current_height = parseInt(one + two);
+		window.orig = current_height;
+		//alert(orig);
 		if(current_height<parseInt($(window).height())){
 			remaining_height = parseInt($(window).height() - two); 
 			$('#thingOne').height(remaining_height);
@@ -195,6 +196,7 @@ $(document).ready(footer);
 $(document).on('page:load', footer);
 
 window.addEventListener('resize', function(event){
+	//alert(orig);
   	var one = $('#thingOne').height(),
 	bnr = parseInt($('#banner').height()),
 	two = 60+bnr+50,
