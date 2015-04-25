@@ -1,6 +1,6 @@
 
-<div class="page-header">
-  <h1><%= @chapter.comic.title %> <small><%= @chapter.title %></small></h1>
+<div class="page-header text-center">
+  <h1><%= @chapter.comic.title %><br><small><%= @chapter.title %></small></h1>
 </div>
 <% @assignments = Assignment.all.select { |t| t.comic_id == @chapter.comic_id } %>
 <% not_nil = -1 %>

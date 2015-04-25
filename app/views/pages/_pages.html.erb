@@ -41,7 +41,7 @@
 		
 		
 		</div>
-    <div class="panel-body"><%= image_tag "#{page.image}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :alt => page.alt_tag %></div>
+    <div class="panel-body"><%= image_tag "#{page.image}", :class => "img-responsive center-block embed-responsive-item", :alt => page.alt_tag %></div>
     <div class="panel-footer"><%= page.description %></div>
   </div>
   <% cookies["chapter_#{page.chapter.id}".to_sym] = @count %> 

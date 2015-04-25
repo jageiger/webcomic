@@ -29,7 +29,7 @@
 	  <tr data-item-id=<%= "#{chapter.id}" %> class="item">
         <td><%= chapter.title %></td>
         <td><%= chapter.description %></td>
-        <td><%= chapter.num_pages %></td>
+        <td><%= Page.all.select { |t| t.chapter == chapter }.count %></td>
         <td><%= link_to 'Show', chapter %></td>
         <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
         <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -44,17 +44,44 @@
 
 <% else %>
 
-<div class="row">
-	<% @chapters.each do |chapter| %>
-
-     <div class="col-xs-6 col-md-4">
-	  <div class="text-center" style="margin-bottom:50px;">
-	    <%= image_tag "#{chapter.cover}", :class => "img-responsive center-block embed-responsive-item img-thumbnail", :data => {:toggle=>"popover", :trigger=>"click", :content=>"#{chapter.description}<br>#{link_to chapter.title, chapter, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;'}", :placement=>"top"}, :title => chapter.title %>
-	  </div>
-	 </div>
-
-  <% end %>
-  
+<div class="page-header text-center" style="">
+  <h1><%= @comic.title %><br><small><%= @comic.description %></small></h1>
 </div>
 
-<% end %>
+  <div class="row">
+	  <% if @chapters.count == 0 %>
+	<div class="col-xs-12 text-center">
+	<h2>Sorry bro, no chapters yet.</h2>
+	</div>
+	<% end %>
+	
+		<% @chapters.each do |chapter| %>
+
+	<% if @chapters.count == 1 %>
+			<div class="col-xs-12">
+	<% elsif @chapters.count == 0 %>
+	 <div class="col-xs-12">
+		Sorry bro, no chapters.		
+	<% else %>
+		<div class="clearfix col-xs-6">
+	<% end %>
+
+			  <div class="text-center center-block" style="margin-bottom:50px;">
+				<a tabindex="0" class="no-outline" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="<%= chapter.title %>" data-content="<%= chapter.description %><br><%= link_to(chapter.title, chapter, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;').gsub("\"", "'") %>">
+				<%= image_tag "#{chapter.cover}", :class => "img-responsive embed-responsive-item img-thumbnail" %></a>
+			  </div>
+	 	  </div>
+
+	    <% end %>
+
+	  </div>
+
+	<% end %>
+	
+
+
+
+
+
+
+

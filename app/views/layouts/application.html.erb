@@ -66,15 +66,18 @@ p {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%#= link_to "Webcomic", root_path, class: 'navbar-brand' %>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav nav-pills">
 				<% if current_page?(root_path) %>
 					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
 				<% else %>
 					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
 				<% end %>
+			</ul>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav nav-pills">
+
             
 <% @navbarComics.each do |comic| %>
 	<% if (current_page?(chapters_path) || current_page?(selected_chapters_path)) && comic == @comic %>
@@ -148,6 +151,16 @@ p {
 $(function () {
 	$('[data-toggle="popover"]').popover({ html : true })
 })
+
+$('#navbar').on('show.bs.collapse', function() {
+    $('.nav-pills').addClass('nav-stacked');
+});
+
+//Unstack menu when not collapsed
+$('#navbar').on('hide.bs.collapse', function() {
+    $('.nav-pills').removeClass('nav-stacked');
+});
+
 
 
 

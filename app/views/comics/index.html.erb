@@ -37,7 +37,6 @@
 </div>
 
   <div class="row">
-	<% numCount = 1 %>
 	<% @comics.each do |comic| %>
  
 <% if @comics.count == 1 %>
@@ -49,20 +48,10 @@
 	<div class="clearfix col-xs-6">
 <% end %>
 			 
-			<% if numCount % 2 == 0 %>
 		  <div class="text-center center-block" style="margin-bottom:50px;">
-			<a tabindex="0" class="no-outline" role="button" data-toggle="popover" data-trigger="focus" data-placement="left" title="<%= comic.title %>" data-content="<%= comic.description %><br><%= link_to(comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;').gsub("\"", "'") %>">
+			<a tabindex="0" class="no-outline" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="<%= comic.title %>" data-content="<%= comic.description %><br><%= link_to(comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;').gsub("\"", "'") %>">
 			<%= image_tag "#{comic.cover}", :class => "img-responsive embed-responsive-item img-thumbnail" %></a>
 		  </div>
-		<% else %>
-		  <div class="text-center center-block" style="margin-bottom:50px;">
-			<a tabindex="0" class="no-outline" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" title="<%= comic.title %>" data-content="<%= comic.description %><br><%= link_to(comic.title, comic, :class => 'btn btn-primary btn-block', :style => 'margin-top:10px;').gsub("\"", "'") %>">
-			<%= image_tag "#{comic.cover}", :class => "img-responsive embed-responsive-item img-thumbnail" %></a>
-		  </div>
-		<% end %>
-		
-<% numCount+=1 %>
-		 	
  	  </div>
 
     <% end %>

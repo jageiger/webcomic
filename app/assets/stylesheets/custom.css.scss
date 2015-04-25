@@ -75,7 +75,7 @@ body {
 }
 
 .navbar.transparent .navbar-inner {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.4);
     color: #ffffff;
 }
 
@@ -88,78 +88,84 @@ body {
     text-decoration: none;
     background-color: rgba(0,0,0,0.2);
 }
-    .button.navbar-toggle.collapsed:focus,
-    .button.navbar-toggle.collapsed:hover {
-	  background-color: rgba(0,0,0,0.2);
-      /* color: #666666; */
-    }
-    .navbar.transparent .navbar-brand:hover, 
-     .navbar.transparent .navbar-brand:focus {
-      background-color: rgba(0,0,0,0.2);
-      color: #ffffff;
-    }
-    .navbar.transparent .navbar-brand{
-      background-color: transparent;
-      color: #ffffff;
-       /* font-family: "Tenor Sans";
-      font-size: 16pt;
-      letter-spacing: 1pt; */
-    }
-	.navbar-toggle {
-	    background-color: rgba(0,0,0,0.2);
-	    position: relative;
-	    float: right;
-	    padding: 9px 10px;
-	    margin-top: 8px;
-	    margin-right: 15px;
-	    margin-bottom: 8px;
-	    background-image: none;
-	    border: 1px solid transparent;
-	    border-radius: 4px;
-	}
-	.navbar-toggle .icon-bar {
-	    display: block;
-	    width: 22px;
-	    height: 2px;
-	    border-radius: 1px;
-	    background-color: #ffffff /* change this to any color you want! */;
-	}
+.button.navbar-toggle.collapsed:focus,
+.button.navbar-toggle.collapsed:hover {
+	background-color: rgba(0,0,0,0.2);
+	/* color: #666666; */
+}
+.navbar.transparent .navbar-brand:hover, 
+.navbar.transparent .navbar-brand:focus {
+	background-color: rgba(0,0,0,0.2);
+	color: #ffffff;
+}
+.navbar.transparent .navbar-brand{
+	background-color: transparent;
+	color: #ffffff;
+	/* font-family: "Tenor Sans";
+	font-size: 16pt;
+	letter-spacing: 1pt; */
+}
+.navbar-toggle {
+	background-color: rgba(0,0,0,0.2);
+	position: relative;
+	float: right;
+	padding: 9px 10px;
+	margin-top: 8px;
+	margin-right: 15px;
+	margin-bottom: 8px;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.navbar-toggle .icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: #ffffff /* change this to any color you want! */;
+}
 
-	/* Everything but the jumbotron gets side spacing for mobile first views */
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+/* Customize container */
+@media (min-width: 1080px) {
+	.thang {
+		height: 100%;
+		max-width: 1080px;
+	}
+}
+.container-narrow > hr {
+	margin: 30px 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+	/* Remove the padding we set earlier */
 	.header,
 	.footer {
-	  padding-right: 15px;
-	  padding-left: 15px;
+		padding-right: 0;
+		padding-left: 0;
 	}
-
-
-	/* Customize container */
-	@media (min-width: 1080px) {
-	  .thang {
-	    height: 100%;
-	    max-width: 1080px;
-	  }
+	/* Space out the masthead */
+	.header {
+		margin-bottom: 30px;
 	}
-	.container-narrow > hr {
-	  margin: 30px 0;
-	}
-
-
-	/* Responsive: Portrait tablets and up */
-	@media screen and (min-width: 768px) {
-	  /* Remove the padding we set earlier */
-	  .header,
-	  .footer {
-	    padding-right: 0;
-	    padding-left: 0;
-	  }
-	  /* Space out the masthead */
-	  .header {
-	    margin-bottom: 30px;
-	  }
-	}
+}
 	
 .popover{
-	max-width: 100%;
-	min-width: 80%;
+/*
+	max-width: 370px;
+	min-width: 80%; */
+}
+
+.popover.bottom > .arrow {
+	border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.popover.bottom > .arrow::after {
+	border-bottom-color:transparent;
 }
