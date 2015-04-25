@@ -66,14 +66,14 @@ p {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Webcomic", root_path, class: 'navbar-brand' %>
+          <%#= link_to "Webcomic", root_path, class: 'navbar-brand' %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav nav-pills">
 				<% if current_page?(root_path) %>
-					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+					<li class="active"><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
 				<% else %>
-					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home<% end %></li>
+					<li><%= link_to root_path do %><span class="glyphicon glyphicon-home" aria-hidden="true"></span><% end %></li>
 				<% end %>
             
 <% @navbarComics.each do |comic| %>
@@ -111,8 +111,8 @@ p {
 <div id="contint">
 	<div class="offset" style="height:50px;background-color:#000000;">
 	</div>
-	<div class="bananer">
-		<%= image_tag "tempBanner.jpg", :class => "img-responsive center-block embed-responsive-item" %>
+	<div class="bananer" >
+		<%= image_tag "tempBanner.jpg", :class => "img-responsive center-block embed-responsive-item", :id =>"banner" %>
 	</div>
 
 <div class="container-fluid thang" style="background:#FFFFFF">
@@ -130,7 +130,7 @@ p {
 
 			<footer class="footer" id="thingTwo">
 			  <div class="container">
-			    <div class="col-xs-6">Hijinx High © 2015</div><div class="col-xs-6 text-right"><%= link_to "Login", new_user_session_path %></div>
+			    <div class="col-xs-6">Hijinx High © 2015</div><div class="col-xs-6 text-right"><%= link_to "Terms of Service", new_user_session_path, :style=>"color:#cecece;" %></div>
 			  </div>
 			</footer>
 
@@ -159,27 +159,47 @@ var footer;
 
 var orig;
 
+/*
+var body = document.body,
+    html = document.documentElement;
+
+var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+// alert("body.scrollHeight: " + body.scrollHeight + " | body.offsetHeight:" + body.offsetHeight + " | html.clientHeight: " + html.clientHeight + " | html.scrollHeight: " + html.scrollHeight + " | html.offsetHeight: " + html.offsetHeight);
+
+// alert(parseInt($(window).height()));
+*/
+
+
 footer = function() {
-	var one = $('#thingOne').height(),
-	two = 60+200+50, // 60 = footerHeight, 200 = bannerHeight, 50 = navBarHeight 
-	current_height = parseInt(one + two);
-	orig = current_height;
-	if(current_height<parseInt($(window).height())){
-		remaining_height = parseInt($(window).height() - two); 
-		$('#thingOne').height(remaining_height);
-	};
+	// 60 = footerHeight, 200 = bannerHeight, 50 = navBarHeight
+	var bnr;
+	$("#banner").load(function() {
+        bnr = $(this).height();
+		//alert(bnr);
+		var one = $('#thingOne').height(),
+		two = 60+bnr+50,  
+		current_height = parseInt(one + two),
+		orig = current_height;
+		if(current_height<parseInt($(window).height())){
+			remaining_height = parseInt($(window).height() - two); 
+			$('#thingOne').height(remaining_height);
+		};
+    });
+	
 };
 
 $(document).ready(footer);
 
 $(document).on('page:load', footer);
 
-
-
 window.addEventListener('resize', function(event){
   	var one = $('#thingOne').height(),
-	two = 60+200+50, 
+	bnr = parseInt($('#banner').height()),
+	two = 60+bnr+50,
 	current_height = parseInt(one + two); 
+	//alert(bnr);
 	if(current_height<parseInt($(window).height())){
 		remaining_height = parseInt($(window).height() - two); 
 		$('#thingOne').height(remaining_height);
@@ -190,18 +210,7 @@ window.addEventListener('resize', function(event){
 	};
 });
 
-/*
 
-var body = document.body,
-    html = document.documentElement;
-
-var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-
-alert("body.scrollHeight: " + body.scrollHeight + " | body.offsetHeight:" + body.offsetHeight + " | html.clientHeight: " + html.clientHeight + " | html.scrollHeight: " + html.scrollHeight + " | html.offsetHeight: " + html.offsetHeight);
-
-
-*/
 </script>
 <% end %>
 

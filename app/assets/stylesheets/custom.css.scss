@@ -46,7 +46,7 @@ body {
 
 
 .btn:focus,.btn:active:focus,.btn.active:focus,
-.btn.focus,.btn:active.focus,.btn.active.focus {
+.btn.focus,.btn:active.focus,.btn.active.focus, .no-outline {
     outline: 0 !important;
 }
 
