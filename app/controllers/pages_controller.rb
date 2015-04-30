@@ -39,6 +39,7 @@ class PagesController < ApplicationController
     end
     
     @chapter = Chapter.find(params[:chapter])
+    @comic = Comic.find(@chapter.comic_id)
     @pages = Page.rank(:row_order).all.select { |t| t.chapter == @chapter }
     unless user_signed_in?
       unless @pages.kind_of?(Array)

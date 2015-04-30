@@ -32,10 +32,33 @@
   	<%= f.file_field :banner, class: "form-control" %>
   </div>
   <div class="form-group">
-  	<%= f.label :navbar %><br>
-  	<%= f.check_box :navbar, class: "form-control" %>
+  	<%= f.label :background_img %><br>
+  	<%= f.file_field :background_img, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit %>
+  	<%= f.label :color_one %><br>
+  	<%= f.text_field :color_one, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :color_two %><br>
+  	<%= f.text_field :color_two, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :color_three %><br>
+  	<%= f.text_field :color_three, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :color_four %><br>
+  	<%= f.text_field :color_four, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.check_box :navbar %> <%= f.label :navbar %>
+  </div>
+  <div class="form-group">
+	<% if @comic.new_record? %>
+	    <%= f.submit 'Create Comic', class: "btn btn-primary"  %>
+	<% else %>
+	  <%= f.submit 'Update Comic', class: "btn btn-primary"  %>
+	<% end %>
   </div>
 <% end %>

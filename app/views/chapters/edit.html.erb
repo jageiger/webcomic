@@ -1,6 +1,10 @@
-<h1>Editing chapter</h1>
+<div class="page-header text-center" style="">
+  <h1>Editing Chapter <br><small>Panic! The filefield is empty! No, I was just too lazy to show a preview. I'm a horrible person, I know. If you aren't changing out the cover, then leave the filefield alone.</small></h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @chapter %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to 'Back', selected_chapters_path(comic: @comic), :class => 'btn btn-default' %>
+
+<br>
+<br>

@@ -8,13 +8,12 @@
 <% not_nil = current_user.id %>
 <% end %>
 <% if current_user.try(:admin?) || @assignments.select { |t| t.user_id == not_nil }.any? %>
+<p class="text-center text-muted"><strong>Note: </strong>The footer javascript is off, because this is the same page as the infinite scroll.</p>
 <table class="table table-hover table-striped" id="sortable">
   <thead>
     <tr>
       <th>Image</th>
-      <th>Thumb</th>
-      <th>Description</th>
-      <th>Pagenum</th>
+      <th>Row Order</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,11 +21,12 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr data-item-id=<%= "#{page.id}" %> class="item">
-        <td><%= page.thumb %></td>
+        <td><%= page.image %></td>
         <td><%= page.row_order %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
         <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', page, :class => 'btn btn-default pull-right' %></td>
+        <td><%= link_to 'Edit', edit_page_path(page), :class => 'btn btn-default pull-right' %></td>
+        <td><%= link_to 'Destroy', page, :class => 'btn btn-danger pull-right', method: :delete, data: { confirm: "Are you sure? This may very well be a really, really bad idea. You may be dead clean sober, but you really should rethink it. (I don't mean rethink destroying the page, I mean rethink your sobriety)." } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,7 +34,9 @@
 
 <br>
 
-<%= link_to 'New', new_page_path(chapter: @chapter) %>
+<%= link_to 'New', new_page_path(chapter: @chapter), :class => 'btn btn-primary' %>
+<br>
+<br>
 
 <% else %>
 

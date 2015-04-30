@@ -42,6 +42,7 @@ class ChaptersController < ApplicationController
 
   # GET /chapters/1/edit
   def edit
+    @comic = @chapter.comic
   end
 
   # POST /chapters

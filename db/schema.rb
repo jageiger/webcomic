@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411040511) do
+ActiveRecord::Schema.define(version: 20150430065857) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -40,9 +40,14 @@ ActiveRecord::Schema.define(version: 20150411040511) do
     t.string   "banner"
     t.integer  "row_order"
     t.boolean  "navbar"
-    t.integer  "num_chapters", default: 0
+    t.integer  "num_chapters",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color_one"
+    t.string   "color_two"
+    t.string   "color_three"
+    t.string   "color_four"
+    t.string   "background_image"
   end
 
   create_table "pages", force: true do |t|

@@ -12,9 +12,11 @@
 <%# if current_user.try(:admin?) %>
 
 
-<h1>Listing chapters</h1>
+<div class="page-header text-center" style="">
+  <h1><%= @comic.title %> Chapters</h1>
+</div>
 
-<table class="table table-bordered table-striped" id="sortable">
+<table class="table table-hover table-striped" id="sortable">
   <thead>
     <tr>
       <th>Title</th>
@@ -30,9 +32,9 @@
         <td><%= chapter.title %></td>
         <td><%= chapter.description %></td>
         <td><%= Page.all.select { |t| t.chapter == chapter }.count %></td>
-        <td><%= link_to 'Show', chapter %></td>
-        <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
-        <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', chapter, :class => 'btn btn-default pull-right' %></td>
+        <td><%= link_to 'Edit', edit_chapter_path(chapter), :class => 'btn btn-default pull-right' %></td>
+        <td><%= link_to 'Destroy', chapter, :class => 'btn btn-danger pull-right', method: :delete, data: { confirm: "Are you sure? This may very well be a really, really bad idea. Lay off the DMT. Any pages you've got inside this chapter will also be deleted. Same applies for any hopes and dreams inside the chapter as well." } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,7 +42,9 @@
 
 <br>
 
-<%= link_to 'New', new_chapter_path(comic: @comic) %>
+<%= link_to 'New Chapter', new_chapter_path(comic: @comic), :class => 'btn btn-primary' %>
+<br>
+<br>
 
 <% else %>
 

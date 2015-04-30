@@ -24,6 +24,10 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit %>
+    <% if @chapter.new_record? %>
+	    <%= f.submit 'Create Chapter', class: "btn btn-primary"  %>
+	<% else %>
+	  <%= f.submit 'Update Chapter', class: "btn btn-primary"  %>
+	<% end %>
   </div>
 <% end %>

@@ -1,12 +1,22 @@
 <% if user_signed_in? %>
 
 
-<h1>Listing comics</h1>
+
 
 <% if current_user.admin? %>
-<table class="table table-bordered table-striped" id="sortable">
+
+<div class="page-header text-center" style="">
+  <h1>Welcome, Admin! <br><small>You can see all the comics.</small></h1>
+</div>
+
+<table class="table table-hover table-striped" id="sortable">
 <% else %>
-<table class="table table-bordered table-striped">
+
+<div class="page-header text-center" style="">
+  <h1>Welcome! <br><small>You can see the comics that you are assigned to.</small></h1>
+</div>
+
+<table class="table table-hover table-striped">
 <% end %>
   <thead>
     <tr>
@@ -36,8 +46,8 @@
         <td><%= Chapter.all.select { |t| t.comic == comic }.count %></td>
         <td><%= comic.description %></td>
         <td><%= link_to 'Show', comic, :class => 'btn btn-default pull-right' %></td>
-        <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
-        <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_comic_path(comic), :class => 'btn btn-default pull-right' %></td>
+        <td><%= link_to 'Destroy', comic, :class => 'btn btn-danger pull-right', method: :delete, data: { confirm: "Are you sure? This may very well be a really, really bad idea. You might've had too much to drink. Please take a moment to reconsider. Or take another swig of your Wild Turkey 101, what do I care? You know what, go ahead and delete your comic. You don't have the gall to do it, anyway." } %></td>
 	      </tr>
 		 <% else %>
 		
@@ -57,12 +67,14 @@
 
 <br>
 
-<%= link_to 'New Comic', new_comic_path %>
+<%= link_to 'New Comic', new_comic_path, :class => 'btn btn-primary' %>
+<br>
+<br>
 
 <% else %>
 
 <div class="page-header text-center" style="">
-  <h1>Welcome! <br><small>Our Wonderful Comics Kick Effinass.</small></h1>
+  <h1>Welcome! <br><small>You Like Webcomics? We've Got 'Em.</small></h1>
 </div>
 
   <div class="row">
