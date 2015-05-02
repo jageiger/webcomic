@@ -7,7 +7,7 @@ class Comic < ActiveRecord::Base
   mount_uploader :cover, CoverUploader
   mount_uploader :logo, LogoUploader
   mount_uploader :banner, BannerUploader
-  mount_uploader :background_img, BackgroundUploader
+  mount_uploader :background_image, BackgroundUploader
   
   include RankedModel
   ranks :row_order
